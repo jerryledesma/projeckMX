@@ -3,37 +3,40 @@
 The site is a single self-contained `index.html`. Two one-time steps make La Boleta
 fully automated: deploy the Apps Script backend, then host the site.
 
-## 1. Deploy the La Boleta backend (~10 min, your Google account)
+## 1. La Boleta backend — ✅ DONE (deployed 2026-07-13)
+
+The Apps Script web app is deployed from Jerry's Google account and its `/exec`
+URL is wired into `build/src.html` (`BOLETA_API`). The `ideas` and `votes` tabs
+create themselves on first use. Open the Sheet any time to watch the family's
+votes arrive as rows.
+
+**To redeploy after editing Code.gs**: in the Apps Script editor use
+Deploy → Manage deployments → edit (pencil) → Version: New version → Deploy.
+The URL stays the same, so no site change is needed. (A brand-new deployment
+mints a different URL — then update `BOLETA_API` in `build/src.html`, run
+`python3 build/build.py`, commit and push.)
+
+<details><summary>Original setup steps (for reference)</summary>
 
 1. Go to [sheets.new](https://sheets.new) and create a blank spreadsheet.
-   Name it something like `La Boleta — Traveling Seven`.
-2. In the Sheet: **Extensions → Apps Script**.
-3. Delete the placeholder code and paste in the contents of
-   [`apps-script/Code.gs`](apps-script/Code.gs). Save (⌘S).
-4. Click **Deploy → New deployment**. Click the gear next to "Select type" and
-   choose **Web app**. Set:
-   - Description: `la boleta`
-   - Execute as: **Me**
-   - Who has access: **Anyone**
-5. Click **Deploy**, authorize when prompted (it only touches this one spreadsheet),
-   and copy the **Web app URL** (ends in `/exec`).
-6. Give that URL to Claude (or paste it yourself into `build/src.html`, line
-   `var BOLETA_API = "";`, then run `python3 build/build.py`).
+2. In the Sheet: **Extensions → Apps Script**; paste in
+   [`apps-script/Code.gs`](apps-script/Code.gs). Save.
+3. **Deploy → New deployment → Web app**: Execute as **Me**, access **Anyone**.
+4. Authorize, copy the **Web app URL** (ends in `/exec`), paste into
+   `BOLETA_API` in `build/src.html`, rebuild.
 
-The `ideas` and `votes` tabs create themselves on first use. Open the Sheet any
-time to watch the family's votes arrive as rows.
+</details>
 
-## 2. Host the site (free)
+## 2. Host the site — Netlify
 
-**GitHub Pages** — from `~/dev/projectmx`: create a repo, push, then in the repo's
-Settings → Pages choose "Deploy from a branch" → `main` → `/ (root)`. The site
-lands at `https://<you>.github.io/projectmx/`.
+Code lives at https://github.com/jerryledesma/projeckMX. In Netlify choose
+**Import from Git**, pick the `projeckMX` repo, leave the build command empty,
+and set the publish directory to `/` (root) — `index.html` is committed
+pre-built. Every push then redeploys automatically.
 
-**Netlify** — drag the `projectmx` folder onto [app.netlify.com/drop](https://app.netlify.com/drop).
-Instant URL, no repo needed.
-
-Either way, votes cast on the artifact preview before hosting are queued on each
-person's device and sync up the first time they open the hosted site.
+Note: votes cast on the old claude.ai artifact preview stay on that page (its
+sandbox can't reach Google, and browser storage doesn't cross sites). Once the
+Netlify link goes out, everyone should vote there.
 
 ## Editing the site
 
