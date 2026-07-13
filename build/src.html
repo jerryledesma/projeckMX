@@ -1,0 +1,1062 @@
+<meta charset="utf-8">
+<title>Traveling Seven: Mexico</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+/*__FONTS__*/
+
+:root{
+  --bone:#FAF5EC;
+  --surface:#F3ECDE;
+  --ink:#25221B;
+  --ink-soft:#5C564A;
+  --pine:#1E453E;
+  --pine-soft:#3A6A5F;
+  --terracotta:#C1553B;
+  --marigold:#D9A441;
+  --rosa:#B34A6B;
+  --line:#DCD2BE;
+  --card:#FFFDF7;
+  --shadow:0 10px 30px rgba(37,34,27,.08);
+  --chip-cdmx:#C1553B;
+  --chip-slp:#A97B22;
+  --ok:#3A6A5F;
+  --stamp:#2E6B8A;
+  --cat-aventura:#C1553B;
+  --cat-cultura:#1E453E;
+  --cat-sabores:#B98A2B;
+  --cat-callejeo:#B34A6B;
+  --cat-noche:#4A4E7C;
+  --cat-comodin:#857D6B;
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --bone:#151F1C; --surface:#1B2724; --ink:#EFE7D7; --ink-soft:#B0A995;
+    --pine:#9FC2B6; --pine-soft:#7EA396; --terracotta:#E07A5A; --marigold:#E4B45F;
+    --rosa:#D77A97; --line:#31403B; --card:#1E2C28; --shadow:0 10px 30px rgba(0,0,0,.35);
+    --chip-cdmx:#E07A5A; --chip-slp:#E4B45F; --ok:#8FC0AF; --stamp:#7FB3D4;
+    --cat-aventura:#E07A5A; --cat-cultura:#7FB3A4; --cat-sabores:#E4B45F;
+    --cat-callejeo:#D77A97; --cat-noche:#9A9FD4; --cat-comodin:#A9A28D;
+  }
+}
+:root[data-theme="dark"]{
+  --bone:#151F1C; --surface:#1B2724; --ink:#EFE7D7; --ink-soft:#B0A995;
+  --pine:#9FC2B6; --pine-soft:#7EA396; --terracotta:#E07A5A; --marigold:#E4B45F;
+  --rosa:#D77A97; --line:#31403B; --card:#1E2C28; --shadow:0 10px 30px rgba(0,0,0,.35);
+  --chip-cdmx:#E07A5A; --chip-slp:#E4B45F; --ok:#8FC0AF; --stamp:#7FB3D4;
+  --cat-aventura:#E07A5A; --cat-cultura:#7FB3A4; --cat-sabores:#E4B45F;
+  --cat-callejeo:#D77A97; --cat-noche:#9A9FD4; --cat-comodin:#A9A28D;
+}
+:root[data-theme="light"]{
+  --bone:#FAF5EC; --surface:#F3ECDE; --ink:#25221B; --ink-soft:#5C564A;
+  --pine:#1E453E; --pine-soft:#3A6A5F; --terracotta:#C1553B; --marigold:#D9A441;
+  --rosa:#B34A6B; --line:#DCD2BE; --card:#FFFDF7; --shadow:0 10px 30px rgba(37,34,27,.08);
+  --chip-cdmx:#C1553B; --chip-slp:#A97B22; --ok:#3A6A5F; --stamp:#2E6B8A;
+  --cat-aventura:#C1553B; --cat-cultura:#1E453E; --cat-sabores:#B98A2B;
+  --cat-callejeo:#B34A6B; --cat-noche:#4A4E7C; --cat-comodin:#857D6B;
+}
+
+*{box-sizing:border-box}
+body{
+  margin:0; background:var(--bone); color:var(--ink);
+  font-family:'Source Sans 3',system-ui,sans-serif;
+  font-size:17px; line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+h1,h2,h3{font-family:'Cormorant Garamond',Georgia,serif; line-height:1.1; margin:0; text-wrap:balance; font-weight:700;}
+a{color:var(--terracotta)}
+button{font:inherit; color:inherit}
+.wrap{max-width:1020px; margin:0 auto; padding:0 22px}
+section{padding:72px 0 8px}
+
+.eyebrow{
+  font-size:12.5px; letter-spacing:.22em; text-transform:uppercase;
+  color:var(--terracotta); font-weight:600; margin-bottom:10px;
+}
+.section-head{margin-bottom:34px}
+.section-head h2{font-size:clamp(34px,5vw,46px); color:var(--pine)}
+.section-head .sub{color:var(--ink-soft); margin-top:6px; max-width:62ch}
+
+.tiles{display:flex; gap:14px; justify-content:center; padding:56px 0 0}
+.tiles span{width:9px; height:9px; transform:rotate(45deg); background:var(--marigold); opacity:.85}
+.tiles span:nth-child(odd){background:var(--terracotta)}
+.tiles span:nth-child(4n){background:var(--pine-soft)}
+
+/* ---------- papel picado ---------- */
+.picado{overflow:hidden; line-height:0; position:relative; z-index:2}
+.picado svg{display:block; width:100%; height:auto; min-width:680px}
+.flag{transform-origin:50% 0; animation:sway 5.2s ease-in-out infinite alternate}
+@keyframes sway{from{transform:rotate(-2.2deg)}to{transform:rotate(2.2deg)}}
+
+/* ---------- hero ---------- */
+.hero{padding:64px 0 84px; text-align:center; position:relative}
+.hero .dates{font-size:13px; letter-spacing:.24em; text-transform:uppercase; font-weight:600; color:var(--terracotta)}
+.hero h1{font-size:clamp(44px,8vw,92px); color:var(--pine); margin:14px 0 6px}
+.hero h1 em{font-style:italic; font-weight:500; color:var(--terracotta)}
+.hero .tagline{
+  font-family:'Cormorant Garamond',Georgia,serif; font-style:italic; font-weight:500;
+  font-size:clamp(20px,3vw,27px); color:var(--ink-soft);
+}
+.hero .cities{
+  display:flex; gap:18px; justify-content:center; align-items:center;
+  margin-top:22px; font-weight:600; letter-spacing:.14em; text-transform:uppercase; font-size:13.5px;
+  color:var(--ink); flex-wrap:wrap;
+}
+.hero .cities .dot{width:6px;height:6px;border-radius:50%;background:var(--marigold)}
+.count{display:flex; gap:12px; justify-content:center; margin-top:44px; flex-wrap:wrap}
+.count .cell{
+  background:var(--card); border:1px solid var(--line); border-radius:10px;
+  padding:18px 10px 12px; min-width:108px; box-shadow:var(--shadow); position:relative; overflow:hidden;
+}
+.count .cell::before{content:""; position:absolute; inset:0 0 auto 0; height:4px; background:linear-gradient(90deg,var(--terracotta),var(--marigold))}
+.count .num{
+  font-family:'Cormorant Garamond',Georgia,serif; font-weight:700;
+  font-size:clamp(40px,6vw,56px); line-height:1; color:var(--ink); font-variant-numeric:tabular-nums;
+}
+.count .lbl{font-size:11.5px; letter-spacing:.2em; text-transform:uppercase; color:var(--ink-soft); margin-top:6px}
+.count-note{margin-top:16px; color:var(--ink-soft); font-size:15px}
+
+/* ---------- nav ---------- */
+nav{position:sticky; top:0; z-index:50; background:color-mix(in srgb, var(--bone) 90%, transparent); backdrop-filter:blur(10px); border-bottom:1px solid var(--line)}
+nav .row{display:flex; gap:4px; overflow-x:auto; padding:0 16px; scrollbar-width:none}
+nav .row::-webkit-scrollbar{display:none}
+nav a{padding:13px 12px; font-size:13.5px; font-weight:600; letter-spacing:.06em; color:var(--ink-soft); text-decoration:none; white-space:nowrap; cursor:pointer}
+nav a:hover{color:var(--terracotta)}
+nav .spacer{flex:1}
+#themeBtn{background:none; border:none; cursor:pointer; color:var(--ink-soft); font-size:13.5px; font-weight:600; padding:13px 10px}
+#themeBtn:hover{color:var(--terracotta)}
+
+/* ---------- route / flights ---------- */
+.route-fig{margin:8px 0 30px}
+.route-fig svg{width:100%; height:auto; display:block}
+.flights{display:grid; grid-template-columns:repeat(auto-fit,minmax(290px,1fr)); gap:18px}
+.flight{background:var(--card); border:1px solid var(--line); border-radius:14px; padding:22px 24px; box-shadow:var(--shadow)}
+.flight .top{display:flex; justify-content:space-between; align-items:baseline; gap:10px; flex-wrap:wrap}
+.flight .fno{font-weight:700; letter-spacing:.08em; color:var(--pine); font-size:14px; text-transform:uppercase}
+.badge{font-size:11px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; background:var(--marigold); color:#3A2C08; border-radius:999px; padding:3px 10px}
+.flight .legs{display:flex; align-items:center; gap:14px; margin-top:14px}
+.flight .apt{font-family:'Cormorant Garamond',Georgia,serif; font-size:36px; font-weight:700; line-height:1}
+.flight .city{font-size:13px; color:var(--ink-soft)}
+.flight .time{font-weight:600; font-variant-numeric:tabular-nums}
+.flight .arrow{flex:1; height:1px; background:var(--line); position:relative; min-width:36px}
+.flight .arrow::after{content:"✈"; position:absolute; top:50%; left:50%; transform:translate(-50%,-55%); background:var(--card); padding:0 8px; color:var(--terracotta); font-size:15px}
+.flight .meta{margin-top:14px; font-size:14px; color:var(--ink-soft)}
+.flight .lay{margin:10px 0 2px; font-size:12.5px; letter-spacing:.12em; text-transform:uppercase; font-weight:700; color:var(--marigold); text-align:center}
+
+/* ---------- los dias ---------- */
+.head-row{display:flex; align-items:end; gap:16px; flex-wrap:wrap}
+.unit-toggle{display:inline-flex; border:1px solid var(--line); border-radius:999px; overflow:hidden; margin-left:auto}
+.unit-toggle button{background:none; border:none; padding:7px 16px; cursor:pointer; font-size:13px; font-weight:700; color:var(--ink-soft)}
+.unit-toggle button.on{background:var(--pine); color:var(--bone)}
+
+.steps{display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:16px; margin:0 0 30px}
+.step{background:var(--surface); border:1px solid var(--line); border-radius:14px; padding:18px 20px; display:flex; gap:14px; align-items:flex-start}
+.step .n{font-family:'Cormorant Garamond',Georgia,serif; font-size:40px; font-weight:700; color:var(--terracotta); line-height:1}
+.step h3{font-size:19px; color:var(--pine); margin-bottom:2px}
+.step p{margin:0; font-size:14px; color:var(--ink-soft)}
+
+.viewtoggle{background:none; border:none; cursor:pointer; padding:0; font-size:14.5px; font-weight:600; color:var(--terracotta); text-decoration:underline; text-underline-offset:3px; margin:0 0 22px}
+.draft-note{
+  font-family:'Cormorant Garamond',Georgia,serif; font-style:italic; font-weight:500;
+  font-size:19px; color:var(--ink-soft); margin:0 0 22px;
+}
+.days{display:grid; grid-template-columns:repeat(auto-fill,minmax(280px,1fr)); gap:16px}
+.day{background:var(--card); border:1px solid var(--line); border-radius:14px; padding:20px 20px 16px; box-shadow:var(--shadow); display:flex; flex-direction:column; gap:10px; transition:transform .25s ease}
+.day:hover{transform:translateY(-3px)}
+.day .drow{display:flex; align-items:center; gap:10px}
+.day .dnum{font-family:'Cormorant Garamond',Georgia,serif; font-weight:700; font-size:30px; color:var(--terracotta); line-height:1; min-width:34px}
+.day .dwhen{font-size:12.5px; letter-spacing:.14em; text-transform:uppercase; font-weight:600; color:var(--ink-soft)}
+.chip{margin-left:auto; font-size:11px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; border-radius:999px; padding:3px 10px; color:var(--bone)}
+.chip.cdmx{background:var(--chip-cdmx)}
+.chip.slp{background:var(--chip-slp)}
+.chip.travel{background:var(--pine)}
+.day h3{font-size:23px; color:var(--pine)}
+.day p{margin:0; font-size:15px; color:var(--ink-soft); flex:1}
+.day .body{flex:1; display:flex; flex-direction:column; gap:7px}
+.pin{display:flex; gap:9px; align-items:baseline; font-size:14px}
+.pin .g{color:var(--terracotta); flex:none; font-size:13px}
+.pin b{font-weight:600}
+.slot{display:flex; gap:9px; align-items:baseline; font-size:14px; color:var(--ink-soft)}
+.slot .s{font-weight:700; font-size:11.5px; letter-spacing:.12em; text-transform:uppercase; min-width:62px}
+.slot .dash{flex:1; border-bottom:1.5px dashed var(--line); transform:translateY(-4px)}
+.slot .tbd{font-style:italic; font-size:13px}
+.votecta{align-self:flex-start; background:none; border:1.5px solid var(--terracotta); color:var(--terracotta); border-radius:999px; padding:5px 15px; font-size:13px; font-weight:700; cursor:pointer; margin-top:4px}
+.votecta:hover{background:var(--terracotta); color:var(--bone)}
+.wx{display:flex; align-items:center; gap:10px; border-top:1px dashed var(--line); padding-top:10px; font-size:14px; color:var(--ink-soft)}
+.wx svg{width:26px; height:26px; flex:none}
+.wx .hi{font-weight:700; color:var(--ink); font-variant-numeric:tabular-nums}
+.wx .lo{font-variant-numeric:tabular-nums}
+.wx-note{margin-top:18px; font-size:14px; color:var(--ink-soft); font-style:italic}
+
+/* ---------- la boleta ---------- */
+.syncline{display:flex; align-items:center; gap:8px; font-size:14px; color:var(--ink-soft); margin-top:10px}
+.syncline .dotp{width:9px; height:9px; border-radius:50%; background:var(--ink-soft); flex:none}
+.syncline.on .dotp{background:var(--ok)}
+.loteria{display:grid; grid-template-columns:repeat(auto-fill,minmax(160px,1fr)); gap:12px; margin-bottom:30px}
+.lcard{
+  background:var(--card); border:2px solid var(--cc); border-radius:12px; padding:5px;
+  cursor:pointer; text-align:center; transition:transform .18s ease; color:inherit;
+}
+.lcard:hover{transform:translateY(-3px)}
+.lcard .in{border:1px solid var(--line); border-radius:8px; padding:12px 10px 13px; height:100%}
+.lcard .no{font-size:11px; color:var(--ink-soft); text-align:left; letter-spacing:.08em}
+.lcard svg{width:30px; height:30px; margin:8px 0 9px; color:var(--cc)}
+.lcard .nm{
+  font-family:'Cormorant Garamond',Georgia,serif; font-weight:700; font-size:16.5px;
+  letter-spacing:.07em; line-height:1.15; color:var(--ink);
+}
+.lcard .ds{font-size:12px; color:var(--ink-soft); margin-top:7px; line-height:1.45}
+.lcard.active{background:var(--cc)}
+.lcard.active .in{border-color:transparent}
+.lcard.active .nm, .lcard.active .no, .lcard.active .ds, .lcard.active svg{color:var(--bone)}
+:root[data-theme="dark"] .lcard.active .nm, :root[data-theme="dark"] .lcard.active .no,
+:root[data-theme="dark"] .lcard.active .ds, :root[data-theme="dark"] .lcard.active svg{color:#151F1C}
+
+.voterbar{display:flex; align-items:center; gap:10px; flex-wrap:wrap; margin-bottom:22px}
+.voterbar .q{font-family:'Cormorant Garamond',Georgia,serif; font-style:italic; font-size:21px; color:var(--pine); margin-right:4px}
+.vchip{background:var(--card); border:1.5px solid var(--line); border-radius:999px; padding:6px 14px; font-size:13.5px; font-weight:600; cursor:pointer; color:var(--ink-soft)}
+.vchip:hover{border-color:var(--marigold)}
+.vchip.me{background:var(--pine); border-color:var(--pine); color:var(--bone)}
+.voterbar.nudge .vchip{border-color:var(--terracotta)}
+.bench-note{width:100%; font-size:12.5px; color:var(--ink-soft); font-style:italic}
+
+.citytabs{display:flex; gap:8px; margin-bottom:16px}
+.citytab{background:var(--card); border:1.5px solid var(--line); border-radius:10px; padding:9px 20px; font-size:14px; font-weight:700; letter-spacing:.06em; cursor:pointer; color:var(--ink-soft)}
+.citytab.on{background:var(--terracotta); border-color:var(--terracotta); color:var(--bone)}
+.ideas{display:flex; flex-direction:column; gap:8px}
+.idea{display:flex; align-items:center; gap:12px; background:var(--card); border:1px solid var(--line); border-radius:12px; padding:11px 16px}
+.idea .cdot{width:10px; height:10px; border-radius:50%; flex:none}
+.idea .tt{font-size:15.5px; font-weight:600; line-height:1.3}
+.idea .by{font-size:12.5px; color:var(--ink-soft); font-style:italic}
+.idea .votes{margin-left:auto; display:flex; gap:6px; flex:none}
+.vbtn{display:flex; align-items:center; gap:5px; background:none; border:1.5px solid var(--line); border-radius:999px; padding:4px 12px; font-size:13.5px; font-weight:700; cursor:pointer; color:var(--ink-soft); font-variant-numeric:tabular-nums}
+.vbtn:hover{border-color:var(--ink-soft)}
+.vbtn.up.sel{background:var(--ok); border-color:var(--ok); color:var(--bone)}
+.vbtn.dn.sel{background:var(--terracotta); border-color:var(--terracotta); color:var(--bone)}
+.ideaform{display:flex; gap:10px; flex-wrap:wrap; margin-top:22px; background:var(--surface); border:1px solid var(--line); border-radius:14px; padding:16px}
+.ideaform input, .ideaform select{
+  font:inherit; font-size:15px; color:var(--ink); background:var(--card);
+  border:1px solid var(--line); border-radius:9px; padding:9px 13px;
+}
+.ideaform input{flex:2; min-width:200px}
+.ideaform select{flex:1; min-width:150px}
+.ideaform input:focus, .ideaform select:focus{outline:none; border-color:var(--marigold)}
+.ideaform button{background:var(--pine); color:var(--bone); border:none; border-radius:9px; padding:9px 22px; font-weight:700; cursor:pointer}
+.ideaform button:hover{opacity:.9}
+.ideaform .hint{width:100%; font-size:12.5px; color:var(--ink-soft); margin:0}
+
+/* ---------- stays ---------- */
+.stays{display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:18px}
+.stay{background:var(--card); border:1px solid var(--line); border-radius:14px; overflow:hidden; box-shadow:var(--shadow)}
+.stay .band{height:7px}
+.stay.cdmx .band{background:linear-gradient(90deg,var(--terracotta),var(--rosa))}
+.stay.slp .band{background:linear-gradient(90deg,var(--marigold),var(--terracotta))}
+.stay .body{padding:22px 24px}
+.stay h3{font-size:26px; color:var(--pine)}
+.stay .when{font-size:13px; letter-spacing:.12em; text-transform:uppercase; font-weight:700; color:var(--terracotta); margin:4px 0 10px}
+.stay .addr{color:var(--ink-soft); font-size:15px}
+.stay a{font-weight:600; font-size:14px; display:inline-block; margin-top:12px}
+
+/* ---------- the seven ---------- */
+.seven{display:grid; grid-template-columns:repeat(auto-fill,minmax(180px,1fr)); gap:14px; perspective:1200px}
+.vcard{position:relative; height:212px; cursor:pointer; border:none; background:none; padding:0; text-align:center}
+.vcard .inner{position:absolute; inset:0; transition:transform .6s cubic-bezier(.2,.7,.3,1); transform-style:preserve-3d}
+.vcard.flip .inner{transform:rotateY(180deg)}
+.vcard .face{
+  position:absolute; inset:0; backface-visibility:hidden; border-radius:14px;
+  border:1px solid var(--line); background:var(--card); box-shadow:var(--shadow);
+  display:flex; flex-direction:column; align-items:center; justify-content:center; gap:8px; padding:16px; overflow:hidden;
+}
+.vcard .face.back{transform:rotateY(180deg); background:var(--pine); color:var(--bone); border-color:var(--pine)}
+:root[data-theme="dark"] .vcard .face.back{background:#264A42; color:#EFE7D7}
+.vcard .mono{width:58px; height:58px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-family:'Cormorant Garamond',Georgia,serif; font-size:26px; font-weight:700; color:var(--bone)}
+.vcard .name{font-weight:700; font-size:15.5px; line-height:1.25}
+.vcard .hint{font-size:11.5px; letter-spacing:.14em; text-transform:uppercase; color:var(--ink-soft)}
+.vcard .face.back .role{font-family:'Cormorant Garamond',Georgia,serif; font-style:italic; font-size:23px; font-weight:500}
+.vcard .face.back .roledesc{font-size:13px; opacity:.85}
+.vcard:focus-visible{outline:3px solid var(--marigold); outline-offset:3px; border-radius:14px}
+.stamp{
+  position:absolute; top:12px; left:50%; transform:translateX(-50%) rotate(-9deg);
+  border:2.5px double var(--stamp); color:var(--stamp); border-radius:7px;
+  font-size:10.5px; font-weight:700; letter-spacing:.18em; text-transform:uppercase;
+  padding:3px 9px; opacity:.85; pointer-events:none; white-space:nowrap;
+}
+.vcard.unconfirmed .face{border:1.5px dashed var(--ink-soft); background:var(--surface); box-shadow:none}
+.vcard.unconfirmed .mono{background:var(--ink-soft) !important; opacity:.55}
+.vcard.unconfirmed .name, .vcard.unconfirmed .hint{color:var(--ink-soft)}
+.vcard.unconfirmed .stamp{border-color:var(--ink-soft); color:var(--ink-soft); border-style:dashed}
+.vcard.unconfirmed .face.back{background:var(--surface); color:var(--ink-soft); border:1.5px dashed var(--ink-soft)}
+
+/* ---------- checklists ---------- */
+.two-col{display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:40px}
+.progress{height:8px; border-radius:999px; background:var(--surface); border:1px solid var(--line); overflow:hidden; margin:14px 0 20px}
+.progress i{display:block; height:100%; width:0%; background:linear-gradient(90deg,var(--terracotta),var(--marigold)); transition:width .4s ease}
+.checks{list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:6px}
+.checks label{display:flex; gap:12px; align-items:center; background:var(--card); border:1px solid var(--line); border-radius:10px; padding:10px 14px; cursor:pointer; transition:border-color .2s}
+.checks label:hover{border-color:var(--marigold)}
+.checks input{accent-color:var(--terracotta); width:17px; height:17px; flex:none}
+.checks input:checked + span{color:var(--ink-soft); text-decoration:line-through; text-decoration-color:var(--marigold)}
+.count-lbl{font-size:14px; color:var(--ink-soft); font-weight:600}
+.antojos{display:grid; gap:10px; margin-top:16px; grid-template-columns:1fr}
+.antojo{display:flex; gap:10px; align-items:center; background:var(--card); border:1px solid var(--line); border-radius:999px; padding:9px 16px; cursor:pointer; font-size:15px; color:var(--ink); transition:transform .15s ease, border-color .2s; border-width:1px; text-align:left}
+.antojo:hover{transform:translateY(-2px); border-color:var(--terracotta)}
+.antojo .box{width:20px;height:20px;border-radius:50%; border:2px solid var(--line); flex:none; display:flex;align-items:center;justify-content:center; font-size:12px; color:var(--bone); transition:all .2s}
+.antojo.done .box{background:var(--ok); border-color:var(--ok)}
+.antojo.done{border-color:var(--ok)}
+.antojo .season{font-size:10.5px; font-weight:700; letter-spacing:.08em; color:var(--rosa); text-transform:uppercase; margin-left:auto}
+
+footer{padding:70px 0 26px; text-align:center; color:var(--ink-soft)}
+footer .heart{font-family:'Cormorant Garamond',Georgia,serif; font-style:italic; font-weight:500; font-size:24px; color:var(--pine); margin-bottom:8px}
+footer .fine{font-size:13px}
+
+.reveal{opacity:0; transform:translateY(22px); transition:opacity .7s ease, transform .7s ease}
+.reveal.in{opacity:1; transform:none}
+#confetti{position:fixed; inset:0; pointer-events:none; z-index:100}
+
+@media (prefers-reduced-motion: reduce){
+  *{animation:none !important; transition:none !important}
+  .reveal{opacity:1; transform:none}
+}
+@media (max-width:560px){
+  .count .cell{min-width:74px; padding:12px 6px 9px}
+  section{padding:54px 0 8px}
+  .idea{flex-wrap:wrap}
+  .idea .votes{margin-left:22px}
+}
+</style>
+
+<div class="picado" aria-hidden="true"><svg id="picadoSvg" viewBox="0 0 1200 92" xmlns="http://www.w3.org/2000/svg"></svg></div>
+
+<header class="hero wrap">
+  <div class="dates">1 – 10 de agosto · 2026</div>
+  <h1>Traveling Seven: <em>Mexico</em></h1>
+  <div class="tagline">Los siete viajeros toman México</div>
+  <div class="cities">
+    <span>Chicago</span><span class="dot"></span>
+    <span>Ciudad de México</span><span class="dot"></span>
+    <span>San Luis Potosí</span>
+  </div>
+  <div class="count" id="count" role="timer" aria-label="Countdown to departure">
+    <div class="cell"><div class="num" id="cd">–</div><div class="lbl">días</div></div>
+    <div class="cell"><div class="num" id="ch">–</div><div class="lbl">horas</div></div>
+    <div class="cell"><div class="num" id="cm">–</div><div class="lbl">min</div></div>
+    <div class="cell"><div class="num" id="cs">–</div><div class="lbl">seg</div></div>
+  </div>
+  <div class="count-note" id="countNote">until wheels up from O'Hare — Aug 1, 9:19 AM</div>
+</header>
+
+<nav aria-label="Sections">
+  <div class="row wrap" style="padding-left:16px;padding-right:16px">
+    <a data-goto="ruta">La Ruta</a>
+    <a data-goto="dias">Los Días</a>
+    <a data-goto="boleta">La Boleta</a>
+    <a data-goto="casas">Las Casas</a>
+    <a data-goto="siete">Los Siete</a>
+    <a data-goto="maleta">La Maleta</a>
+    <a data-goto="antojos">Antojos</a>
+    <span class="spacer"></span>
+    <button id="themeBtn" aria-label="Toggle dark mode">◐ tema</button>
+  </div>
+</nav>
+
+<section id="ruta" class="wrap">
+  <div class="section-head reveal">
+    <div class="eyebrow">La Ruta · The Route</div>
+    <h2>Two cities, one familia</h2>
+    <p class="sub">Four nights in the heart of Mexico City's Roma Norte, then five in San Luis Potosí, home by way of Houston. Nine days, zero alarm clocks required (mostly).</p>
+  </div>
+  <div class="route-fig reveal" aria-hidden="true">
+    <svg viewBox="0 0 1000 190" xmlns="http://www.w3.org/2000/svg">
+      <path d="M 80 55 Q 300 -10 500 105 Q 700 205 920 120" fill="none" stroke="var(--terracotta)" stroke-width="2.5" stroke-dasharray="7 7"/>
+      <circle cx="80" cy="55" r="7" fill="var(--pine)"/>
+      <circle cx="500" cy="105" r="7" fill="var(--terracotta)"/>
+      <circle cx="920" cy="120" r="7" fill="var(--marigold)"/>
+      <text x="80" y="92" text-anchor="middle" font-size="15" font-weight="700" fill="var(--ink)" font-family="'Source Sans 3',sans-serif">ORD</text>
+      <text x="80" y="112" text-anchor="middle" font-size="12" fill="var(--ink-soft)" font-family="'Source Sans 3',sans-serif">Chicago</text>
+      <text x="500" y="145" text-anchor="middle" font-size="15" font-weight="700" fill="var(--ink)" font-family="'Source Sans 3',sans-serif">MEX</text>
+      <text x="500" y="165" text-anchor="middle" font-size="12" fill="var(--ink-soft)" font-family="'Source Sans 3',sans-serif">Ciudad de México</text>
+      <text x="920" y="90" text-anchor="middle" font-size="15" font-weight="700" fill="var(--ink)" font-family="'Source Sans 3',sans-serif">SLP</text>
+      <text x="920" y="70" text-anchor="middle" font-size="12" fill="var(--ink-soft)" font-family="'Source Sans 3',sans-serif">San Luis Potosí</text>
+    </svg>
+  </div>
+  <div class="flights">
+    <div class="flight reveal">
+      <div class="top"><span class="fno">United · UA 359</span><span style="font-size:13px;color:var(--ink-soft)">Sat, Aug 1</span></div>
+      <div class="legs">
+        <div><div class="apt">ORD</div><div class="city">Chicago</div><div class="time">9:19 AM</div></div>
+        <div class="arrow"></div>
+        <div style="text-align:right"><div class="apt">MEX</div><div class="city">Mexico City</div><div class="time">12:45 PM</div></div>
+      </div>
+      <div class="meta">4h 26m · Boeing 737 MAX 8 · row 30, todos juntos</div>
+    </div>
+    <div class="flight reveal">
+      <div class="top"><span class="fno">Aeroméxico · AM 1534</span><span class="badge">new time</span><span style="font-size:13px;color:var(--ink-soft)">Wed, Aug 5</span></div>
+      <div class="legs">
+        <div><div class="apt">MEX</div><div class="city">Terminal 2</div><div class="time">2:00 PM</div></div>
+        <div class="arrow"></div>
+        <div style="text-align:right"><div class="apt">SLP</div><div class="city">San Luis Potosí</div><div class="time">3:20 PM</div></div>
+      </div>
+      <div class="meta">1h 20m · moved from 11:40 AM — enjoy the slow morning</div>
+    </div>
+    <div class="flight reveal">
+      <div class="top"><span class="fno">United · Homeward</span><span style="font-size:13px;color:var(--ink-soft)">Mon, Aug 10</span></div>
+      <div class="legs">
+        <div><div class="apt">SLP</div><div class="city">UA 2405</div><div class="time">11:45 AM</div></div>
+        <div class="arrow"></div>
+        <div style="text-align:right"><div class="apt">IAH</div><div class="city">Houston</div><div class="time">2:40 PM</div></div>
+      </div>
+      <div class="lay">4h 04m layover — dinner in Houston</div>
+      <div class="legs">
+        <div><div class="apt">IAH</div><div class="city">UA 2197</div><div class="time">6:44 PM</div></div>
+        <div class="arrow"></div>
+        <div style="text-align:right"><div class="apt">ORD</div><div class="city">Chicago</div><div class="time">9:40 PM</div></div>
+      </div>
+      <div class="meta">rows 30 &amp; 36 · home by bedtime</div>
+    </div>
+  </div>
+</section>
+
+<div class="tiles" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+
+<section id="dias" class="wrap">
+  <div class="section-head head-row reveal">
+    <div style="flex:1;min-width:260px">
+      <div class="eyebrow">Los Días · Day by Day</div>
+      <h2>Nine days, ten sunrises</h2>
+      <p class="sub">The frame is set — flights, keys, and weather. What fills the open days is up to the Seven. That's where La Boleta comes in.</p>
+    </div>
+    <div class="unit-toggle" role="group" aria-label="Temperature units">
+      <button id="unitF" class="on">°F</button><button id="unitC">°C</button>
+    </div>
+  </div>
+
+  <div class="steps reveal">
+    <div class="step"><div class="n">1</div><div><h3>Vota</h3><p>Six lotería cards below hold the family's ideas. Thumbs up what excites you, down what doesn't.</p></div></div>
+    <div class="step"><div class="n">2</div><div><h3>Propón</h3><p>Got a better idea? Add it to any card and it joins the ballot for everyone.</p></div></div>
+    <div class="step"><div class="n">3</div><div><h3>Se arma solo</h3><p>When the votes are in, these open days fill themselves with the winners.</p></div></div>
+  </div>
+
+  <button class="viewtoggle" id="viewToggle">Ver itinerario recomendado →</button>
+  <p class="draft-note" id="draftNote" hidden>Starter plan — Jerry's draft, pending the family's votes.</p>
+
+  <div class="days" id="daysGrid"></div>
+  <p class="wx-note reveal" id="wxNote">Weather shown is the typical August pattern for each city — the live forecast takes over automatically as the trip gets close.</p>
+</section>
+
+<div class="tiles" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+
+<section id="boleta" class="wrap">
+  <div class="section-head reveal">
+    <div class="eyebrow">La Boleta · The Ballot</div>
+    <h2>You build this trip</h2>
+    <p class="sub">Pick your name, play your cards. Tap a lotería card to see just that category; vote everything up or down; add your own ideas below.</p>
+    <div class="syncline" id="syncLine"><span class="dotp"></span><span id="syncText">…</span></div>
+  </div>
+
+  <div class="loteria reveal" id="loteriaGrid"></div>
+
+  <div class="voterbar reveal" id="voterBar">
+    <span class="q">¿Quién eres?</span>
+    <span class="bench-note" id="benchNote" hidden>Noah votes from the bench — not on this trip, still one of the Seven.</span>
+  </div>
+
+  <div class="citytabs reveal">
+    <button class="citytab on" data-city="cdmx">Ciudad de México</button>
+    <button class="citytab" data-city="slp">San Luis Potosí</button>
+  </div>
+
+  <div class="ideas" id="ideaList"></div>
+
+  <form class="ideaform reveal" id="ideaForm">
+    <input id="ideaTitle" type="text" maxlength="80" placeholder="Your idea — e.g. sunrise tamales run" required>
+    <select id="ideaCat" required>
+      <option value="" disabled selected>Category…</option>
+    </select>
+    <button type="submit">Proponer</button>
+    <p class="hint">Your idea joins the ballot for the city tab you're on. Signed with your name above.</p>
+  </form>
+</section>
+
+<div class="tiles" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+
+<section id="casas" class="wrap">
+  <div class="section-head reveal">
+    <div class="eyebrow">Las Casas · Where We're Staying</div>
+    <h2>Home bases</h2>
+  </div>
+  <div class="stays">
+    <div class="stay cdmx reveal">
+      <div class="band"></div>
+      <div class="body">
+        <h3>Roma Norte Apt · #1304</h3>
+        <div class="when">Aug 1 – 5 · 4 nights</div>
+        <div class="addr">Medellín 43, Roma Norte<br>Cuauhtémoc, C.P. 06700, Ciudad de México</div>
+        <p style="font-size:14.5px;color:var(--ink-soft);margin:12px 0 0">Roma Norte is the city's prettiest neighborhood — tree-lined streets, art deco facades, and more good cafés than we have mornings.</p>
+        <a href="https://maps.google.com/?q=Medell%C3%ADn+43,+Roma+Norte,+Cuauht%C3%A9moc,+06700+Ciudad+de+M%C3%A9xico" target="_blank" rel="noopener">Open in Maps →</a>
+      </div>
+    </div>
+    <div class="stay slp reveal">
+      <div class="band"></div>
+      <div class="body">
+        <h3>Hotel Agua de Plata</h3>
+        <div class="when">Aug 5 – 10 · 5 nights</div>
+        <div class="addr">C. Independencia 1570<br>78339 San Luis Potosí, S.L.P., México</div>
+        <p style="font-size:14.5px;color:var(--ink-soft);margin:12px 0 0">Our base for the potosino chapter — colonial plazas, quiet evenings, and the best enchiladas of the trip within walking distance.</p>
+        <a href="https://maps.google.com/?q=C.+Independencia+1570,+78339+San+Luis+Potos%C3%AD,+M%C3%A9xico" target="_blank" rel="noopener">Open in Maps →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="tiles" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+
+<section id="siete" class="wrap">
+  <div class="section-head reveal">
+    <div class="eyebrow">Los Siete · The Seven</div>
+    <h2>Meet the crew</h2>
+    <p class="sub">Six stamped into the manifest, one voting from the bench. Tap a card to reveal each viajero's official trip title.</p>
+  </div>
+  <div class="seven" id="sevenGrid"></div>
+</section>
+
+<div class="tiles" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+
+<section id="maleta" class="wrap">
+  <div class="two-col">
+    <div class="reveal">
+      <div class="eyebrow">La Maleta · Packing</div>
+      <h2 style="font-size:36px;color:var(--pine)">Don't forget…</h2>
+      <div style="display:flex;align-items:center;gap:14px;margin-top:10px">
+        <span class="count-lbl" id="packCount">0 of 0 packed</span>
+      </div>
+      <div class="progress"><i id="packBar"></i></div>
+      <ul class="checks" id="packList"></ul>
+      <p style="font-size:13.5px;color:var(--ink-soft);font-style:italic">Your checkmarks save on this device — everyone tracks their own maleta.</p>
+    </div>
+    <div class="reveal">
+      <div class="eyebrow" id="antojos">Antojos · The Food Bucket List</div>
+      <h2 style="font-size:36px;color:var(--pine)">Eat everything</h2>
+      <div style="display:flex;align-items:center;gap:14px;margin-top:10px">
+        <span class="count-lbl" id="foodCount">0 of 0 probados</span>
+      </div>
+      <div class="progress"><i id="foodBar"></i></div>
+      <div class="antojos" id="foodGrid"></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="tiles" aria-hidden="true" style="padding:0 0 34px"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+  <div class="heart">Hecho con cariño para los Siete</div>
+  <div class="fine">ProjectMX · agosto 2026 · Chicago → CDMX → SLP</div>
+</footer>
+
+<canvas id="confetti"></canvas>
+
+<script>
+(function(){
+  "use strict";
+  var BOLETA_API = "";
+  var PALETTE = ["#C1553B","#D9A441","#1E453E","#B34A6B","#3A6A5F"];
+  var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  function $(id){ return document.getElementById(id); }
+  function store(k,v){ try{ localStorage.setItem(k, JSON.stringify(v)); }catch(e){} }
+  function read(k,d){ try{ var v = localStorage.getItem(k); return v===null ? d : JSON.parse(v); }catch(e){ return d; } }
+  function goTo(id){ var el = $(id); if(el) el.scrollIntoView({behavior: reduced ? "auto" : "smooth", block:"start"}); }
+
+  document.querySelectorAll("nav a[data-goto]").forEach(function(a){
+    a.addEventListener("click", function(e){ e.preventDefault(); goTo(a.getAttribute("data-goto")); });
+  });
+
+  $("themeBtn").addEventListener("click", function(){
+    var root = document.documentElement;
+    var current = root.getAttribute("data-theme") ||
+      (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+    root.setAttribute("data-theme", current === "dark" ? "light" : "dark");
+  });
+
+  /* ---------- papel picado ---------- */
+  (function(){
+    var svg = $("picadoSvg"), NS = "http://www.w3.org/2000/svg";
+    var flagW = 74, gap = 6, n = Math.ceil(1200 / (flagW + gap));
+    function mk(tag,attrs){ var e=document.createElementNS(NS,tag); for(var k in attrs) e.setAttribute(k,attrs[k]); return e; }
+    svg.appendChild(mk("line",{x1:0,y1:3,x2:1200,y2:3,stroke:"var(--ink-soft)","stroke-width":1.5}));
+    for(var i=0;i<n;i++){
+      var g = mk("g",{"class":"flag",style:"animation-delay:"+(i*0.35)+"s;transform-box:fill-box"});
+      var x = i*(flagW+gap)+4, cx = x+flagW/2, color = PALETTE[i%PALETTE.length];
+      g.appendChild(mk("path",{d:"M"+x+" 4 h"+flagW+" v56 l-"+(flagW/2)+" 18 l-"+(flagW/2)+" -18 z",fill:color,opacity:.92}));
+      g.appendChild(mk("circle",{cx:cx,cy:30,r:9,fill:"var(--bone)",opacity:.9}));
+      g.appendChild(mk("circle",{cx:cx-22,cy:20,r:4,fill:"var(--bone)",opacity:.9}));
+      g.appendChild(mk("circle",{cx:cx+22,cy:20,r:4,fill:"var(--bone)",opacity:.9}));
+      g.appendChild(mk("rect",{x:cx-3.2,y:46,width:6.4,height:6.4,transform:"rotate(45 "+cx+" 49)",fill:"var(--bone)",opacity:.9}));
+      svg.appendChild(g);
+    }
+  })();
+
+  /* ---------- countdown ---------- */
+  var target = new Date("2026-08-01T09:19:00-05:00").getTime();
+  var landing = new Date("2026-08-01T12:45:00-06:00").getTime();
+  var tripEnd = new Date("2026-08-10T21:40:00-05:00").getTime();
+  var note = $("countNote");
+  function pad(v){ return v<10 ? "0"+v : ""+v; }
+  function tick(){
+    var now = Date.now(), diff = target - now;
+    if(diff <= 0){
+      if(now < landing) note.textContent = "¡En el aire! Next stop: Mexico City.";
+      else if(now < tripEnd) note.textContent = "¡Ya estamos en México! Enjoy every minute.";
+      else note.textContent = "Trip complete — hasta la próxima aventura.";
+      $("cd").textContent="0"; $("ch").textContent="00"; $("cm").textContent="00"; $("cs").textContent="00";
+      return;
+    }
+    var s = Math.floor(diff/1000);
+    $("cd").textContent = Math.floor(s/86400);
+    $("ch").textContent = pad(Math.floor(s%86400/3600));
+    $("cm").textContent = pad(Math.floor(s%3600/60));
+    $("cs").textContent = pad(s%60);
+  }
+  tick(); setInterval(tick, 1000);
+
+  /* ---------- weather ---------- */
+  var ICONS = {
+    sun: '<svg viewBox="0 0 24 24" fill="none" stroke="var(--marigold)" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="4.4" fill="var(--marigold)" stroke="none"/><path d="M12 2.5v2.6M12 18.9v2.6M2.5 12h2.6M18.9 12h2.6M5 5l1.8 1.8M17.2 17.2L19 19M19 5l-1.8 1.8M6.8 17.2L5 19"/></svg>',
+    suncloud: '<svg viewBox="0 0 24 24" fill="none" stroke-linecap="round"><circle cx="9" cy="9" r="3.6" fill="var(--marigold)"/><path d="M9 2.8v1.8M2.8 9h1.8M4.6 4.6l1.3 1.3" stroke="var(--marigold)" stroke-width="1.6"/><path d="M8.5 19.5h8.7a3.4 3.4 0 0 0 .6-6.8 4.9 4.9 0 0 0-9.5-1.2 3.9 3.9 0 0 0 .2 8Z" fill="var(--card)" stroke="var(--ink-soft)" stroke-width="1.6"/></svg>',
+    rain: '<svg viewBox="0 0 24 24" fill="none" stroke-linecap="round"><path d="M7 15.5h9.7a3.4 3.4 0 0 0 .6-6.8 4.9 4.9 0 0 0-9.5-1.2 3.9 3.9 0 0 0-.8 8Z" fill="var(--card)" stroke="var(--ink-soft)" stroke-width="1.6"/><path d="M9 18.2l-.9 2.4M13 18.2l-.9 2.4M17 18.2l-.9 2.4" stroke="var(--pine-soft)" stroke-width="1.8"/></svg>'
+  };
+  function wxLabel(ic){ return ic==="sun" ? "sunny" : ic==="rain" ? "pm shower likely" : "sun, pm clouds"; }
+
+  /* ---------- los dias ---------- */
+  var DAYS = [
+    {n:1, wd:"Sáb", date:"Ago 1", iso:"2026-08-01", city:"travel", cityLbl:"Vuelo + CDMX", hi:74, lo:57, ic:"suncloud",
+      pins:[["✈","Land at MEX 12:45 PM — UA 359"],["⌂","Keys to Roma Norte #1304"]], open:["Noche"],
+      draft:{t:"¡Nos vamos!", d:"Land at 12:45, keys to the Roma Norte apt, then a first golden-hour stroll and tacos al pastor for dinner."}},
+    {n:2, wd:"Dom", date:"Ago 2", iso:"2026-08-02", city:"cdmx", cityLbl:"CDMX", hi:75, lo:56, ic:"suncloud",
+      pins:[], open:["Mañana","Tarde","Noche"],
+      draft:{t:"Centro Histórico", d:"The Zócalo, the Catedral, Palacio de Bellas Artes — and Reforma closes to cars on Sundays if anyone wants to bike it."}},
+    {n:3, wd:"Lun", date:"Ago 3", iso:"2026-08-03", city:"cdmx", cityLbl:"CDMX", hi:73, lo:55, ic:"rain",
+      pins:[], open:["Mañana","Tarde","Noche"],
+      draft:{t:"Roma & Condesa", d:"Slow neighborhood day: Parque México, bookstores, café-hopping, and churros. Museums rest on Mondays; so do we."}},
+    {n:4, wd:"Mar", date:"Ago 4", iso:"2026-08-04", city:"cdmx", cityLbl:"CDMX", hi:74, lo:56, ic:"suncloud",
+      pins:[], open:["Mañana","Tarde","Noche"],
+      draft:{t:"Coyoacán & Xochimilco", d:"Frida Kahlo's Casa Azul in the morning, then a trajinera float through the canals with snacks and música."}},
+    {n:5, wd:"Mié", date:"Ago 5", iso:"2026-08-05", city:"travel", cityLbl:"CDMX → SLP", hi:77, lo:58, ic:"sun",
+      pins:[["⌂","Checkout Roma Norte"],["✈","AM 1534 · MEX 2:00 PM → SLP 3:20 PM"],["⌂","Check in — Hotel Agua de Plata"]], open:["Noche"],
+      draft:{t:"Travel day, part two", d:"Lazy morning thanks to the 2 PM flight. Wheels down in San Luis at 3:20, check in at Agua de Plata, evening plaza walk."}},
+    {n:6, wd:"Jue", date:"Ago 6", iso:"2026-08-06", city:"slp", cityLbl:"SLP", hi:79, lo:60, ic:"sun",
+      pins:[], open:["Mañana","Tarde","Noche"],
+      draft:{t:"Centro Potosino", d:"Plaza de Armas, the pink-stone Templo del Carmen, and a slow walk down Calzada de Guadalupe."}},
+    {n:7, wd:"Vie", date:"Ago 7", iso:"2026-08-07", city:"slp", cityLbl:"SLP", hi:80, lo:60, ic:"suncloud",
+      pins:[], open:["Mañana","Tarde","Noche"],
+      draft:{t:"Día libre — dream big", d:"Open day. Options on the table: a Huasteca adventure, mercado crawl, or absolutely nothing. Family vote pending."}},
+    {n:8, wd:"Sáb", date:"Ago 8", iso:"2026-08-08", city:"slp", cityLbl:"SLP", hi:79, lo:59, ic:"suncloud",
+      pins:[], open:["Mañana","Tarde","Noche"],
+      draft:{t:"Parque Tangamanga", d:"One of Mexico's biggest city parks — picnic, paddle boats, and room for the whole crew to spread out."}},
+    {n:9, wd:"Dom", date:"Ago 9", iso:"2026-08-09", city:"slp", cityLbl:"SLP", hi:78, lo:59, ic:"rain",
+      pins:[], open:["Mañana","Tarde","Noche"],
+      draft:{t:"Mercados & despedida", d:"Last mercado run for gifts, one more round of enchiladas potosinas, and a golden-hour plaza evening."}},
+    {n:10, wd:"Lun", date:"Ago 10", iso:"2026-08-10", city:"travel", cityLbl:"Hasta luego", hi:79, lo:60, ic:"sun",
+      pins:[["⌂","Checkout by 9:15 AM"],["✈","UA 2405 · SLP 11:45 AM → Houston"],["✈","UA 2197 · IAH 6:44 PM → ORD 9:40 PM"]], open:[],
+      draft:{t:"Homeward", d:"Checkout by 9:15, wheels up at 11:45, dinner in Houston, and home by bedtime. Start plotting the reunion."}}
+  ];
+  var useF = read("mx.unit","F") !== "C";
+  var draftView = read("mx.diasview","open") === "draft";
+  function f2c(f){ return Math.round((f-32)*5/9); }
+  function pad2(n){ return n<10 ? "0"+n : ""+n; }
+  function esc(s){ var d=document.createElement("div"); d.textContent=s; return d.innerHTML; }
+  function renderDays(){
+    var grid = $("daysGrid"); grid.innerHTML = "";
+    $("draftNote").hidden = !draftView;
+    $("viewToggle").textContent = draftView ? "← Volver a los días abiertos" : "Ver itinerario recomendado →";
+    DAYS.forEach(function(d){
+      var hi = useF ? d.hi+"°" : f2c(d.hi)+"°";
+      var lo = useF ? d.lo+"°" : f2c(d.lo)+"°";
+      var el = document.createElement("article");
+      el.className = "day reveal in";
+      var body = "";
+      if(draftView){
+        body = '<h3>'+esc(d.draft.t)+'</h3><p>'+esc(d.draft.d)+'</p>';
+      } else {
+        body = '<div class="body">';
+        d.pins.forEach(function(p){ body += '<div class="pin"><span class="g">'+p[0]+'</span><b>'+esc(p[1])+'</b></div>'; });
+        d.open.forEach(function(s){ body += '<div class="slot"><span class="s">'+s+'</span><span class="dash"></span><span class="tbd">por decidir</span></div>'; });
+        if(d.open.length){ body += '<button class="votecta" data-goto="boleta">Vota abajo ↓</button>'; }
+        else if(d.n===10){ body += '<p style="font-style:italic">¡Hasta la próxima aventura!</p>'; }
+        body += '</div>';
+      }
+      el.innerHTML =
+        '<div class="drow"><span class="dnum">'+pad2(d.n)+'</span>'+
+        '<span class="dwhen">'+d.wd+' · '+d.date+'</span>'+
+        '<span class="chip '+d.city+'">'+d.cityLbl+'</span></div>'+ body +
+        '<div class="wx">'+ICONS[d.ic]+
+        '<span><span class="hi">'+hi+'</span> / <span class="lo">'+lo+'</span></span>'+
+        '<span style="margin-left:auto;font-size:12.5px">'+wxLabel(d.ic)+'</span></div>';
+      grid.appendChild(el);
+    });
+    grid.querySelectorAll(".votecta").forEach(function(b){
+      b.addEventListener("click", function(){ goTo("boleta"); });
+    });
+  }
+  $("viewToggle").addEventListener("click", function(){
+    draftView = !draftView; store("mx.diasview", draftView ? "draft" : "open"); renderDays();
+  });
+  var bF = $("unitF"), bC = $("unitC");
+  function setUnit(f){ useF=f; store("mx.unit", f?"F":"C"); bF.classList.toggle("on",f); bC.classList.toggle("on",!f); renderDays(); }
+  bF.addEventListener("click", function(){ setUnit(true); });
+  bC.addEventListener("click", function(){ setUnit(false); });
+  bF.classList.toggle("on",useF); bC.classList.toggle("on",!useF);
+  renderDays();
+
+  /* live forecast — works once hosted; silently keeps climatology otherwise */
+  (function(){
+    function url(lat,lon){
+      return "https://api.open-meteo.com/v1/forecast?latitude="+lat+"&longitude="+lon+
+        "&daily=temperature_2m_max,temperature_2m_min,weathercode&timezone=auto&start_date=2026-08-01&end_date=2026-08-10";
+    }
+    function icon(code){ return code>=51 ? "rain" : code>=2 ? "suncloud" : "sun"; }
+    try{
+      Promise.all([
+        fetch(url(19.4326,-99.1332)).then(function(r){ return r.json(); }),
+        fetch(url(22.1565,-100.9855)).then(function(r){ return r.json(); })
+      ]).then(function(res){
+        var cdmx = res[0].daily, slp = res[1].daily;
+        if(!cdmx || !slp || !cdmx.time) return;
+        DAYS.forEach(function(d){
+          var src = d.n <= 4 ? cdmx : slp;
+          var i = src.time.indexOf(d.iso);
+          if(i < 0) return;
+          d.hi = Math.round(src.temperature_2m_max[i]*9/5+32);
+          d.lo = Math.round(src.temperature_2m_min[i]*9/5+32);
+          d.ic = icon(src.weathercode[i]);
+        });
+        $("wxNote").textContent = "Pronóstico en vivo — updated every time the page opens.";
+        renderDays();
+      }).catch(function(){});
+    }catch(e){}
+  })();
+
+  /* ---------- la boleta ---------- */
+  var CATS = [
+    {key:"aventura", num:1, name:"LA AVENTURA GRANDE", desc:"The big day trips. Vote like you only get one — because you kind of do.",
+     ic:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"><path d="M12 4 L20 20 H4 Z"/><path d="M9.4 9.2 L12 12 L14.6 9.2"/></svg>'},
+    {key:"cultura", num:2, name:"CULTURA", desc:"Museums, castles, and history. Morning brain food for the crew.",
+     ic:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"><path d="M4 9 L12 3.5 L20 9 H4 Z"/><path d="M6 9v8M12 9v8M18 9v8M4 20h16"/></svg>'},
+    {key:"sabores", num:3, name:"SABORES", desc:"Everything we eat, from street tacos to churros. Vote with your stomach.",
+     ic:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M13.5 6 C17 6 19 9 18.5 12.5 C18 16.5 15 20 11.5 20 C8.5 20 7 17.5 7.8 14.5 C8.8 11 10.5 6 13.5 6 Z"/><path d="M13.5 6 C13.5 4.5 14.5 3.5 16 3.2"/></svg>'},
+    {key:"callejeo", num:4, name:"CALLEJEO", desc:"Plazas, parks, and golden-hour wanders. The art of doing nothing, beautifully.",
+     ic:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><circle cx="13" cy="4.5" r="1.8"/><path d="M10 21 L12 15 L10.5 10.5 L13.5 8.5 L15.5 12 H18M10.5 10.5 L8 12.5 L6.5 10.8M12 15 L15 17.5 L15.5 21"/></svg>'},
+    {key:"noche", num:5, name:"LA NOCHE", desc:"After-dark plans. Yes, lucha libre counts as culture.",
+     ic:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"><path d="M14.5 3.5 A8.5 8.5 0 1 0 21 13.5 A7 7 0 0 1 14.5 3.5 Z"/></svg>'},
+    {key:"comodin", num:6, name:"EL COMODÍN", desc:"The wildcard. Anything goes — top vote gets honored, no questions asked.",
+     ic:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="3"/><circle cx="9" cy="9" r="1.1" fill="currentColor" stroke="none"/><circle cx="15" cy="9" r="1.1" fill="currentColor" stroke="none"/><circle cx="12" cy="12" r="1.1" fill="currentColor" stroke="none"/><circle cx="9" cy="15" r="1.1" fill="currentColor" stroke="none"/><circle cx="15" cy="15" r="1.1" fill="currentColor" stroke="none"/></svg>'}
+  ];
+  var SEEDS = [
+    {id:"teo", city:"cdmx", cat:"aventura", title:"Pirámides de Teotihuacán — day trip", by:"starter"},
+    {id:"xochi", city:"cdmx", cat:"aventura", title:"Trajineras de Xochimilco", by:"starter"},
+    {id:"frida", city:"cdmx", cat:"cultura", title:"Casa Azul — Museo Frida Kahlo", by:"starter"},
+    {id:"antro", city:"cdmx", cat:"cultura", title:"Museo Nacional de Antropología", by:"starter"},
+    {id:"castillo", city:"cdmx", cat:"cultura", title:"Castillo de Chapultepec", by:"starter"},
+    {id:"pastor", city:"cdmx", cat:"sabores", title:"Taco crawl: al pastor edition", by:"starter"},
+    {id:"moro", city:"cdmx", cat:"sabores", title:"Churros y chocolate en El Moro", by:"starter"},
+    {id:"mercoyo", city:"cdmx", cat:"sabores", title:"Antojitos del Mercado de Coyoacán", by:"starter"},
+    {id:"romawalk", city:"cdmx", cat:"callejeo", title:"Golden hour por Roma & Condesa", by:"starter"},
+    {id:"alameda", city:"cdmx", cat:"callejeo", title:"Alameda + Bellas Artes stroll", by:"starter"},
+    {id:"lucha", city:"cdmx", cat:"noche", title:"Lucha libre en la Arena México", by:"starter"},
+    {id:"garibaldi", city:"cdmx", cat:"noche", title:"Mariachis en Plaza Garibaldi", by:"starter"},
+    {id:"angel", city:"cdmx", cat:"comodin", title:"Family photo — Ángel de la Independencia", by:"starter"},
+    {id:"globo", city:"cdmx", cat:"comodin", title:"Hot-air balloon over Teotihuacán (early birds only)", by:"starter"},
+    {id:"huasteca", city:"slp", cat:"aventura", title:"Cascadas de Tamasopo — Huasteca day trip", by:"starter"},
+    {id:"cerro", city:"slp", cat:"aventura", title:"Cerro de San Pedro ghost town", by:"starter"},
+    {id:"carmen", city:"slp", cat:"cultura", title:"Templo del Carmen + Museo del Virreinato", by:"starter"},
+    {id:"mascara", city:"slp", cat:"cultura", title:"Museo Nacional de la Máscara", by:"starter"},
+    {id:"enchiladas", city:"slp", cat:"sabores", title:"Enchiladas potosinas — the definitive tasting", by:"starter"},
+    {id:"republica", city:"slp", cat:"sabores", title:"Mercado República snack & gift run", by:"starter"},
+    {id:"nieve", city:"slp", cat:"sabores", title:"Nieve de garrafa en la plaza", by:"starter"},
+    {id:"calzada", city:"slp", cat:"callejeo", title:"Calzada de Guadalupe evening walk", by:"starter"},
+    {id:"tanga", city:"slp", cat:"callejeo", title:"Picnic en Parque Tangamanga", by:"starter"},
+    {id:"armas", city:"slp", cat:"noche", title:"Plaza de Armas de noche", by:"starter"},
+    {id:"leyendas", city:"slp", cat:"noche", title:"Leyendas walking tour del centro", by:"starter"},
+    {id:"camisetas", city:"slp", cat:"comodin", title:"Matching Traveling Seven t-shirt photo", by:"starter"},
+    {id:"lucaspick", city:"slp", cat:"comodin", title:"Lucas picks one thing, unsupervised", by:"starter"}
+  ];
+  var VOTERS = ["Perla","Jerry","Angelina","Lucas","Jesse","Claudia","Noah"];
+  var me = read("mx.voter", null);
+  var myVotes = read("mx.myvotes", {});
+  var localIdeas = read("mx.localIdeas", []);
+  var queue = read("mx.queue", []);
+  var serverIdeas = [], serverVotes = [];
+  var activeCity = "cdmx", activeCat = null;
+
+  function catOf(k){ for(var i=0;i<CATS.length;i++) if(CATS[i].key===k) return CATS[i]; return CATS[5]; }
+  function allIdeas(){ return SEEDS.concat(serverIdeas, localIdeas); }
+  function tally(ideaId){
+    var up=0, dn=0, mine = myVotes[ideaId] || 0;
+    serverVotes.forEach(function(v){
+      if(v.ideaId!==ideaId) return;
+      if(me && v.voter===me) return;
+      if(v.vote>0) up++; else if(v.vote<0) dn++;
+    });
+    if(mine>0) up++; else if(mine<0) dn++;
+    return {up:up, dn:dn, mine:mine};
+  }
+
+  var lg = $("loteriaGrid");
+  CATS.forEach(function(c){
+    var b = document.createElement("button");
+    b.type = "button"; b.className = "lcard"; b.style.setProperty("--cc","var(--cat-"+c.key+")");
+    b.setAttribute("aria-label", c.name+" — filter ballot");
+    b.innerHTML = '<span class="in" style="display:block"><span class="no">№ '+c.num+'</span>'+c.ic+
+      '<span class="nm" style="display:block">'+c.name+'</span><span class="ds" style="display:block">'+c.desc+'</span></span>';
+    b.addEventListener("click", function(){
+      activeCat = activeCat===c.key ? null : c.key;
+      lg.querySelectorAll(".lcard").forEach(function(x,i){ x.classList.toggle("active", CATS[i].key===activeCat); });
+      renderIdeas();
+    });
+    lg.appendChild(b);
+  });
+
+  var vb = $("voterBar");
+  VOTERS.forEach(function(v){
+    var b = document.createElement("button");
+    b.type="button"; b.className = "vchip" + (me===v ? " me" : "");
+    b.textContent = v;
+    b.addEventListener("click", function(){
+      me = v; store("mx.voter", v);
+      vb.querySelectorAll(".vchip").forEach(function(x){ x.classList.toggle("me", x.textContent===v); });
+      vb.classList.remove("nudge");
+      $("benchNote").hidden = v!=="Noah";
+      renderIdeas();
+    });
+    vb.insertBefore(b, $("benchNote"));
+  });
+
+  document.querySelectorAll(".citytab").forEach(function(t){
+    t.addEventListener("click", function(){
+      activeCity = t.getAttribute("data-city");
+      document.querySelectorAll(".citytab").forEach(function(x){ x.classList.toggle("on", x===t); });
+      renderIdeas();
+    });
+  });
+
+  var catSel = $("ideaCat");
+  CATS.forEach(function(c){
+    var o = document.createElement("option"); o.value = c.key; o.textContent = "№ "+c.num+" · "+c.name;
+    catSel.appendChild(o);
+  });
+
+  function renderIdeas(){
+    var list = $("ideaList"); list.innerHTML = "";
+    var shown = allIdeas().filter(function(i){
+      return i.city===activeCity && (!activeCat || i.cat===activeCat);
+    });
+    shown.sort(function(a,b){
+      var ta = tally(a.id), tb = tally(b.id);
+      return (tb.up-tb.dn) - (ta.up-ta.dn);
+    });
+    shown.forEach(function(idea){
+      var t = tally(idea.id);
+      var row = document.createElement("div"); row.className = "idea";
+      var by = idea.by==="starter" ? "" : '<div class="by">de '+esc(idea.by)+'</div>';
+      row.innerHTML =
+        '<span class="cdot" style="background:var(--cat-'+idea.cat+')"></span>'+
+        '<div><div class="tt">'+esc(idea.title)+'</div>'+by+'</div>'+
+        '<div class="votes">'+
+        '<button type="button" class="vbtn up'+(t.mine>0?" sel":"")+'">▲ '+t.up+'</button>'+
+        '<button type="button" class="vbtn dn'+(t.mine<0?" sel":"")+'">▼ '+t.dn+'</button></div>';
+      row.querySelector(".up").addEventListener("click", function(){ castVote(idea.id, 1); });
+      row.querySelector(".dn").addEventListener("click", function(){ castVote(idea.id, -1); });
+      list.appendChild(row);
+    });
+    if(!shown.length){
+      list.innerHTML = '<p style="color:var(--ink-soft);font-style:italic">Nothing here yet — be the first to propose something below.</p>';
+    }
+  }
+
+  function castVote(ideaId, dir){
+    if(!me){ vb.classList.add("nudge"); goTo("boleta"); return; }
+    var cur = myVotes[ideaId] || 0;
+    var next = cur===dir ? 0 : dir;
+    myVotes[ideaId] = next;
+    store("mx.myvotes", myVotes);
+    send({action:"vote", ideaId:ideaId, voter:me, vote:next});
+    renderIdeas();
+  }
+
+  $("ideaForm").addEventListener("submit", function(e){
+    e.preventDefault();
+    if(!me){ vb.classList.add("nudge"); return; }
+    var title = $("ideaTitle").value.trim();
+    var cat = catSel.value;
+    if(!title || !cat) return;
+    var idea = {id:"c"+Date.now()+Math.floor(Math.random()*1000), city:activeCity, cat:cat, title:title, by:me};
+    localIdeas.push(idea);
+    store("mx.localIdeas", localIdeas);
+    send({action:"submit", idea:idea});
+    $("ideaTitle").value = ""; catSel.selectedIndex = 0;
+    renderIdeas();
+  });
+
+  function setSync(on, text){
+    $("syncLine").classList.toggle("on", on);
+    $("syncText").textContent = text;
+  }
+  function send(msg){
+    if(!BOLETA_API){ queue.push(msg); store("mx.queue", queue); return; }
+    fetch(BOLETA_API, {method:"POST", body:JSON.stringify(msg)})
+      .then(function(r){ return r.json(); })
+      .then(function(res){ if(res && res.state) applyState(res.state); })
+      .catch(function(){ queue.push(msg); store("mx.queue", queue); setSync(false, "Sin conexión — reintentando; tus votos no se pierden."); });
+  }
+  function applyState(state){
+    serverIdeas = (state.ideas || []).filter(function(i){
+      return !SEEDS.some(function(s){ return s.id===i.id; });
+    });
+    serverVotes = state.votes || [];
+    localIdeas = localIdeas.filter(function(li){
+      return !serverIdeas.some(function(si){ return si.id===li.id; });
+    });
+    store("mx.localIdeas", localIdeas);
+    renderIdeas();
+  }
+  function sync(){
+    if(!BOLETA_API){
+      setSync(false, "Modo preliminar — tus votos viven en este dispositivo y se suman cuando el sitio estrene casa nueva.");
+      return;
+    }
+    var pending = queue.slice(); queue = []; store("mx.queue", queue);
+    pending.forEach(send);
+    fetch(BOLETA_API + "?action=state")
+      .then(function(r){ return r.json(); })
+      .then(function(state){ applyState(state); setSync(true, "Sincronizado — se actualiza solo."); })
+      .catch(function(){ setSync(false, "Sin conexión — mostrando la última versión."); });
+  }
+  sync();
+  if(BOLETA_API) setInterval(sync, 30000);
+  renderIdeas();
+
+  /* ---------- the seven ---------- */
+  var SEVEN = [
+    {name:"Perla Alba", role:"La Capitana", desc:"Keeper of the reservations. What she says, goes.", color:"#C1553B", ok:true},
+    {name:"Gerardo Ledesma", role:"El Navegante", desc:"Maps, logistics, and this very website.", color:"#1E453E", ok:true},
+    {name:"Angelina Isabel Garcia", role:"La Cronista", desc:"Official trip photographer & memory keeper.", color:"#B34A6B", ok:true},
+    {name:"Lucas Avery Ledesma", role:"El Explorador", desc:"First one up, first one to say \"what's next?\"", color:"#D9A441", ok:true},
+    {name:"Jesse Alba", role:"El Estratega", desc:"Master of the group chat and the master plan.", color:"#3A6A5F", ok:true},
+    {name:"Claudia Alba", role:"La Curadora", desc:"Finds the spots worth finding.", color:"#4A4E7C", ok:true},
+    {name:"Noah Alba", role:"El Votante Remoto", desc:"Sitting this one out — but his ballots count from Chicago.", color:"#857D6B", ok:false}
+  ];
+  var sevenGrid = $("sevenGrid");
+  SEVEN.forEach(function(p){
+    var initials = p.name.split(" ").map(function(w){return w[0];}).slice(0,2).join("");
+    var b = document.createElement("button");
+    b.type = "button";
+    b.className = "vcard" + (p.ok ? "" : " unconfirmed");
+    b.setAttribute("aria-label", p.name + (p.ok ? " — confirmed traveler" : " — not confirmed") + ", tap to reveal trip title");
+    var stamp = p.ok ? '<span class="stamp">Confirmed ★ 2026</span>' : '<span class="stamp">Standby</span>';
+    b.innerHTML =
+      '<span class="inner">'+
+      '<span class="face">'+stamp+'<span class="mono" style="background:'+p.color+'">'+initials+'</span>'+
+      '<span class="name">'+p.name+'</span><span class="hint">tap to flip</span></span>'+
+      '<span class="face back"><span class="role">'+p.role+'</span><span class="roledesc">'+p.desc+'</span></span>'+
+      '</span>';
+    b.addEventListener("click", function(){ b.classList.toggle("flip"); });
+    sevenGrid.appendChild(b);
+  });
+
+  /* ---------- packing ---------- */
+  var PACK = [
+    "Passport (check the expiration!)","Pesos or a no-fee card","Light rain jacket or mini umbrella",
+    "Comfortable walking shoes","Sweater for cool CDMX nights","Sunscreen & hat",
+    "Phone charger + adapter","Swimsuit (just in case, Huasteca…)","Small day backpack",
+    "Meds & a mini first-aid kit","Downloaded maps & playlists","Room in the suitcase for gifts"
+  ];
+  var packState = read("mx.pack", {});
+  var packList = $("packList");
+  PACK.forEach(function(item, i){
+    var li = document.createElement("li");
+    li.innerHTML = '<label><input type="checkbox"'+(packState[i]?" checked":"")+'><span>'+item+'</span></label>';
+    li.querySelector("input").addEventListener("change", function(e){
+      packState[i] = e.target.checked; store("mx.pack", packState); updatePack(true);
+    });
+    packList.appendChild(li);
+  });
+  function updatePack(fromClick){
+    var done = PACK.filter(function(_,i){ return packState[i]; }).length;
+    $("packCount").textContent = done + " of " + PACK.length + " packed";
+    $("packBar").style.width = (done/PACK.length*100) + "%";
+    if(fromClick && done === PACK.length) burst();
+  }
+  updatePack(false);
+
+  /* ---------- food ---------- */
+  var FOOD = [
+    {n:"Tacos al pastor", w:"CDMX"},{n:"Churros de El Moro", w:"CDMX"},
+    {n:"Chiles en nogada", w:"CDMX", season:true},{n:"Tamales de canasta", w:"CDMX"},
+    {n:"Concha + café de olla", w:"anywhere"},{n:"Tlacoyos del mercado", w:"CDMX"},
+    {n:"Enchiladas potosinas", w:"SLP"},{n:"Gorditas de horno", w:"SLP"},
+    {n:"Tacos rojos potosinos", w:"SLP"},{n:"Agua fresca del día", w:"daily"},
+    {n:"Elote callejero", w:"anywhere"},{n:"Nieve de garrafa", w:"SLP"}
+  ];
+  var foodState = read("mx.food", {});
+  var foodGrid = $("foodGrid");
+  FOOD.forEach(function(f, i){
+    var b = document.createElement("button");
+    b.type = "button";
+    b.className = "antojo" + (foodState[i] ? " done" : "");
+    b.innerHTML = '<span class="box">'+(foodState[i] ? "✓" : "")+'</span><span>'+f.n+'</span>'+
+      (f.season ? '<span class="season">¡temporada!</span>' : '<span class="season" style="color:var(--ink-soft)">'+f.w+'</span>');
+    b.addEventListener("click", function(){
+      foodState[i] = !foodState[i]; store("mx.food", foodState);
+      b.classList.toggle("done", !!foodState[i]);
+      b.querySelector(".box").textContent = foodState[i] ? "✓" : "";
+      updateFood(true);
+    });
+    foodGrid.appendChild(b);
+  });
+  function updateFood(fromClick){
+    var done = FOOD.filter(function(_,i){ return foodState[i]; }).length;
+    $("foodCount").textContent = done + " of " + FOOD.length + " probados";
+    $("foodBar").style.width = (done/FOOD.length*100) + "%";
+    if(fromClick && done === FOOD.length) burst();
+  }
+  updateFood(false);
+
+  /* ---------- reveal ---------- */
+  if(!reduced && "IntersectionObserver" in window){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if(en.isIntersecting){ en.target.classList.add("in"); io.unobserve(en.target); }
+      });
+    }, {threshold:.12});
+    document.querySelectorAll(".reveal").forEach(function(el){ io.observe(el); });
+  } else {
+    document.querySelectorAll(".reveal").forEach(function(el){ el.classList.add("in"); });
+  }
+
+  /* ---------- confetti ---------- */
+  var canvas = $("confetti"), ctx = canvas.getContext("2d"), pieces = [], raf = null;
+  function burst(){
+    if(reduced) return;
+    canvas.width = window.innerWidth; canvas.height = window.innerHeight;
+    for(var i=0;i<120;i++){
+      pieces.push({
+        x: Math.random()*canvas.width, y: -20 - Math.random()*canvas.height*0.4,
+        w: 7+Math.random()*7, h: 10+Math.random()*10,
+        c: PALETTE[i % PALETTE.length],
+        vy: 2+Math.random()*3, vx: -1+Math.random()*2,
+        r: Math.random()*Math.PI, vr: -0.1+Math.random()*0.2
+      });
+    }
+    if(!raf) raf = requestAnimationFrame(step);
+  }
+  function step(){
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+    pieces.forEach(function(p){
+      p.y += p.vy; p.x += p.vx; p.r += p.vr;
+      ctx.save(); ctx.translate(p.x,p.y); ctx.rotate(p.r);
+      ctx.fillStyle = p.c; ctx.globalAlpha = .9;
+      ctx.fillRect(-p.w/2,-p.h/2,p.w,p.h);
+      ctx.restore();
+    });
+    pieces = pieces.filter(function(p){ return p.y < canvas.height + 30; });
+    if(pieces.length){ raf = requestAnimationFrame(step); }
+    else { raf = null; ctx.clearRect(0,0,canvas.width,canvas.height); }
+  }
+})();
+</script>
