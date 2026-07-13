@@ -27,12 +27,10 @@ mints a different URL — then update `BOLETA_API` in `build/src.html`, run
 
 </details>
 
-## 2. Host the site — Netlify
+## 2. Hosting — ✅ LIVE at https://travelingseven.netlify.app/
 
-Code lives at https://github.com/jerryledesma/projeckMX. In Netlify choose
-**Import from Git**, pick the `projeckMX` repo, leave the build command empty,
-and set the publish directory to `/` (root) — `index.html` is committed
-pre-built. Every push then redeploys automatically.
+Netlify is connected to https://github.com/jerryledesma/projeckMX (no build
+command, publish directory `/`) — every push to `main` redeploys automatically.
 
 Note: votes cast on the old claude.ai artifact preview stay on that page (its
 sandbox can't reach Google, and browser storage doesn't cross sites). Once the
