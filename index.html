@@ -126,15 +126,79 @@ section{padding:72px 0 8px}
 .count .lbl{font-size:11.5px; letter-spacing:.2em; text-transform:uppercase; color:var(--ink-soft); margin-top:6px}
 .count-note{margin-top:16px; color:var(--ink-soft); font-size:15px}
 
-/* ---------- nav ---------- */
-nav{position:sticky; top:0; z-index:50; background:color-mix(in srgb, var(--bone) 90%, transparent); backdrop-filter:blur(10px); border-bottom:1px solid var(--line)}
-nav .row{display:flex; gap:4px; overflow-x:auto; padding:0 16px; scrollbar-width:none}
-nav .row::-webkit-scrollbar{display:none}
-nav a{padding:13px 12px; font-size:13.5px; font-weight:600; letter-spacing:.06em; color:var(--ink-soft); text-decoration:none; white-space:nowrap; cursor:pointer}
-nav a:hover{color:var(--terracotta)}
-nav .spacer{flex:1}
-#themeBtn{background:none; border:none; cursor:pointer; color:var(--ink-soft); font-size:13.5px; font-weight:600; padding:13px 10px}
-#themeBtn:hover{color:var(--terracotta)}
+/* ---------- floating island nav (desktop) ---------- */
+#island{
+  position:fixed; left:50%; transform:translateX(-50%); top:12px; z-index:60;
+  display:flex; align-items:center; gap:2px; padding:6px 10px;
+  background:color-mix(in srgb, var(--bone) 74%, transparent);
+  backdrop-filter:blur(14px) saturate(1.4); -webkit-backdrop-filter:blur(14px) saturate(1.4);
+  border:1px solid var(--line); border-radius:999px; box-shadow:var(--shadow);
+  transition:top .35s ease, transform .35s ease;
+  max-width:calc(100% - 24px);
+}
+#island.below{top:104px}
+#island.hide{transform:translate(-50%,-220%)}
+#island .mono7{
+  width:26px; height:26px; border-radius:50%; background:var(--terracotta); color:var(--bone);
+  font-family:'Cormorant Garamond',Georgia,serif; font-weight:700; font-size:15px;
+  display:flex; align-items:center; justify-content:center; margin-right:6px; flex:none;
+}
+#island a{
+  position:relative; z-index:1; padding:7px 12px; font-size:13.5px; font-weight:600;
+  color:var(--ink-soft); text-decoration:none; white-space:nowrap; cursor:pointer; border-radius:999px;
+  transition:color .25s ease;
+}
+#island a:hover{color:var(--terracotta)}
+#island a.active{color:var(--bone)}
+#island .ind{
+  position:absolute; z-index:0; top:6px; bottom:6px; left:0; width:0; border-radius:999px;
+  background:var(--terracotta); opacity:0;
+  transition:transform .5s cubic-bezier(.3,1.35,.4,1), width .5s cubic-bezier(.3,1.35,.4,1), opacity .2s;
+}
+#island .divider{width:1px; height:18px; background:var(--line); margin:0 6px}
+#themeBtn, #themeBtn2{background:none; border:none; cursor:pointer; color:var(--ink-soft); font-size:13px; font-weight:600; padding:6px 8px; border-radius:999px}
+#themeBtn:hover, #themeBtn2:hover{color:var(--terracotta)}
+
+/* ---------- mobile dock + more-sheet ---------- */
+#dock{
+  position:fixed; left:50%; transform:translateX(-50%);
+  bottom:calc(10px + env(safe-area-inset-bottom)); z-index:60;
+  display:none; align-items:stretch; gap:2px;
+  width:min(430px, calc(100% - 20px)); padding:6px 8px;
+  background:color-mix(in srgb, var(--bone) 78%, transparent);
+  backdrop-filter:blur(14px) saturate(1.4); -webkit-backdrop-filter:blur(14px) saturate(1.4);
+  border:1px solid var(--line); border-radius:22px; box-shadow:var(--shadow);
+  transition:transform .35s ease;
+}
+#dock.hide{transform:translate(-50%,220%)}
+#dock button{
+  background:none; border:none; cursor:pointer; flex:1;
+  display:flex; flex-direction:column; align-items:center; gap:2px;
+  padding:6px 2px; color:var(--ink-soft); border-radius:14px;
+}
+#dock button svg{width:22px; height:22px}
+#dock button .dl{font-size:10px; font-weight:700; letter-spacing:.04em}
+#dock button.active{color:var(--terracotta)}
+#sheetWrap{position:fixed; inset:0; z-index:70}
+#sheetWrap[hidden]{display:none}
+#sheetBg{position:absolute; inset:0; background:rgba(15,22,19,.38)}
+#sheet{
+  position:absolute; left:50%; transform:translateX(-50%);
+  bottom:calc(76px + env(safe-area-inset-bottom));
+  width:min(430px, calc(100% - 20px));
+  background:var(--card); border:1px solid var(--line); border-radius:18px; box-shadow:var(--shadow);
+  padding:10px;
+}
+#sheet a{display:block; padding:12px 14px; font-size:15.5px; font-weight:600; color:var(--ink); text-decoration:none; border-radius:12px; cursor:pointer}
+#sheet a:hover{background:var(--surface)}
+#sheet .row2{display:flex; align-items:center; justify-content:space-between; border-top:1px dashed var(--line); margin-top:8px; padding:10px 6px 2px}
+@media (max-width:760px){
+  #island{display:none}
+  #dock{display:flex}
+}
+@media (min-width:761px){
+  section{scroll-margin-top:64px}
+}
 
 /* ---------- route / flights ---------- */
 .route-fig{margin:8px 0 30px}
@@ -366,20 +430,54 @@ footer .fine{font-size:13px}
   <div class="count-note" id="countNote">until wheels up from O'Hare — Aug 1, 9:19 AM</div>
 </header>
 
-<nav aria-label="Sections">
-  <div class="row wrap" style="padding-left:16px;padding-right:16px">
-    <a data-goto="ruta"><span class="es">La Ruta</span><span class="en">The Route</span></a>
-    <a data-goto="dias"><span class="es">Los Días</span><span class="en">The Days</span></a>
-    <a data-goto="boleta"><span class="es">La Boleta</span><span class="en">The Ballot</span></a>
-    <a data-goto="casas"><span class="es">Las Casas</span><span class="en">The Stays</span></a>
-    <a data-goto="siete"><span class="es">Los Siete</span><span class="en">The Seven</span></a>
-    <a data-goto="maleta"><span class="es">La Maleta</span><span class="en">Packing</span></a>
-    <a data-goto="antojos"><span class="es">Antojos</span><span class="en">Food List</span></a>
-    <span class="spacer"></span>
-    <span class="langsw" role="group" aria-label="Language"><button id="langES">ES</button><button id="langEN">EN</button></span>
-    <button id="themeBtn" aria-label="Toggle dark mode">◐ <span class="es">tema</span><span class="en">theme</span></button>
-  </div>
+<nav id="island" aria-label="Sections">
+  <span class="mono7" aria-hidden="true">7</span>
+  <span class="ind" aria-hidden="true"></span>
+  <a data-goto="ruta"><span class="es">Ruta</span><span class="en">Route</span></a>
+  <a data-goto="dias"><span class="es">Días</span><span class="en">Days</span></a>
+  <a data-goto="boleta"><span class="es">Boleta</span><span class="en">Ballot</span></a>
+  <a data-goto="casas"><span class="es">Casas</span><span class="en">Stays</span></a>
+  <a data-goto="siete"><span class="es">Siete</span><span class="en">Seven</span></a>
+  <a data-goto="maleta"><span class="es">Maleta</span><span class="en">Packing</span></a>
+  <span class="divider" aria-hidden="true"></span>
+  <span class="langsw" role="group" aria-label="Language"><button id="langES">ES</button><button id="langEN">EN</button></span>
+  <button id="themeBtn" aria-label="Toggle dark mode">◐</button>
 </nav>
+
+<nav id="dock" aria-label="Sections">
+  <button data-goto="dias">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="4" y="6" width="16" height="14" rx="2.5"/><path d="M8 4v4M16 4v4M4 11h16"/></svg>
+    <span class="dl"><span class="es">Días</span><span class="en">Days</span></span>
+  </button>
+  <button data-goto="boleta">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M9 12.5l2.2 2.2L15.5 10"/></svg>
+    <span class="dl"><span class="es">Boleta</span><span class="en">Ballot</span></span>
+  </button>
+  <button data-goto="casas">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 11 12 4.5 19.5 11"/><path d="M6.5 10v9.5h11V10"/><path d="M10.5 19.5v-5h3v5"/></svg>
+    <span class="dl"><span class="es">Casas</span><span class="en">Stays</span></span>
+  </button>
+  <button data-goto="siete">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="8" r="3.2"/><path d="M5.5 19.5c.8-3.4 3.4-5 6.5-5s5.7 1.6 6.5 5"/></svg>
+    <span class="dl"><span class="es">Siete</span><span class="en">Seven</span></span>
+  </button>
+  <button id="moreBtn" aria-expanded="false" aria-controls="sheet">
+    <svg viewBox="0 0 24 24" fill="currentColor"><circle cx="5.5" cy="12" r="1.7"/><circle cx="12" cy="12" r="1.7"/><circle cx="18.5" cy="12" r="1.7"/></svg>
+    <span class="dl"><span class="es">Más</span><span class="en">More</span></span>
+  </button>
+</nav>
+<div id="sheetWrap" hidden>
+  <div id="sheetBg"></div>
+  <div id="sheet" role="dialog" aria-label="More sections">
+    <a data-goto="ruta"><span class="es">La Ruta — vuelos</span><span class="en">The Route — flights</span></a>
+    <a data-goto="maleta"><span class="es">La Maleta — checklist</span><span class="en">Packing — checklist</span></a>
+    <a data-goto="antojos"><span class="es">Antojos — comida</span><span class="en">Food list</span></a>
+    <div class="row2">
+      <span class="langsw" role="group" aria-label="Language"><button id="langES2">ES</button><button id="langEN2">EN</button></span>
+      <button id="themeBtn2" aria-label="Toggle dark mode">◐ <span class="es">tema</span><span class="en">theme</span></button>
+    </div>
+  </div>
+</div>
 
 <section id="ruta" class="wrap">
   <div class="section-head reveal">
@@ -586,32 +684,88 @@ footer .fine{font-size:13px}
   function read(k,d){ try{ var v = localStorage.getItem(k); return v===null ? d : JSON.parse(v); }catch(e){ return d; } }
   function goTo(id){ var el = $(id); if(el) el.scrollIntoView({behavior: reduced ? "auto" : "smooth", block:"start"}); }
 
-  document.querySelectorAll("nav a[data-goto]").forEach(function(a){
-    a.addEventListener("click", function(e){ e.preventDefault(); goTo(a.getAttribute("data-goto")); });
-  });
+  var island = $("island"), dock = $("dock"), ind = island.querySelector(".ind");
 
-  $("themeBtn").addEventListener("click", function(){
+  function closeSheet(){
+    $("sheetWrap").hidden = true;
+    $("moreBtn").setAttribute("aria-expanded","false");
+  }
+  document.querySelectorAll("nav [data-goto], #sheet [data-goto]").forEach(function(a){
+    a.addEventListener("click", function(e){ e.preventDefault(); closeSheet(); goTo(a.getAttribute("data-goto")); });
+  });
+  $("moreBtn").addEventListener("click", function(){
+    var w = $("sheetWrap");
+    w.hidden = !w.hidden;
+    $("moreBtn").setAttribute("aria-expanded", String(!w.hidden));
+  });
+  $("sheetBg").addEventListener("click", closeSheet);
+
+  function toggleTheme(){
     var root = document.documentElement;
     var current = root.getAttribute("data-theme") ||
       (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
     root.setAttribute("data-theme", current === "dark" ? "light" : "dark");
-  });
+  }
+  $("themeBtn").addEventListener("click", toggleTheme);
+  $("themeBtn2").addEventListener("click", toggleTheme);
 
   function paintLang(){
     var en = document.documentElement.getAttribute("data-lang") === "en";
-    $("langES").classList.toggle("on", !en);
-    $("langEN").classList.toggle("on", en);
+    ["langES","langES2"].forEach(function(id){ var b=$(id); if(b) b.classList.toggle("on", !en); });
+    ["langEN","langEN2"].forEach(function(id){ var b=$(id); if(b) b.classList.toggle("on", en); });
   }
   function setLang(l){
     if(l === "en") document.documentElement.setAttribute("data-lang","en");
     else document.documentElement.removeAttribute("data-lang");
     document.documentElement.lang = l;
     try{ localStorage.setItem("mx.lang", JSON.stringify(l)); }catch(e){}
-    fillCatSel(); paintLang();
+    fillCatSel(); paintLang(); moveInd();
   }
-  $("langES").addEventListener("click", function(){ setLang("es"); });
-  $("langEN").addEventListener("click", function(){ setLang("en"); });
+  ["langES","langES2"].forEach(function(id){ $(id).addEventListener("click", function(){ setLang("es"); }); });
+  ["langEN","langEN2"].forEach(function(id){ $(id).addEventListener("click", function(){ setLang("en"); }); });
   paintLang();
+
+  /* scrollspy + sliding indicator */
+  function setActive(id){
+    document.querySelectorAll("#island a[data-goto], #dock button[data-goto]").forEach(function(el){
+      el.classList.toggle("active", el.getAttribute("data-goto") === id);
+    });
+    moveInd();
+  }
+  function moveInd(){
+    var a = island.querySelector("a.active");
+    if(!a){ ind.style.opacity = 0; return; }
+    ind.style.opacity = 1;
+    ind.style.width = a.offsetWidth + "px";
+    ind.style.transform = "translateX(" + a.offsetLeft + "px)";
+  }
+  var SPY_IDS = ["ruta","dias","boleta","casas","siete","maleta"];
+  var lastActive = null;
+  function spyCheck(){
+    var mark = window.innerHeight * 0.42;
+    var current = null;
+    for(var i=0;i<SPY_IDS.length;i++){
+      var el = $(SPY_IDS[i]);
+      if(el && el.getBoundingClientRect().top <= mark) current = SPY_IDS[i];
+    }
+    if(current !== lastActive){ lastActive = current; setActive(current); }
+  }
+  window.addEventListener("resize", function(){ moveInd(); spyCheck(); });
+
+  /* island docks below the picado banner at top; both bars hide on scroll down */
+  var lastY = window.scrollY;
+  function onScroll(){
+    var y = window.scrollY;
+    island.classList.toggle("below", y < 70);
+    if($("sheetWrap").hidden){
+      if(y > lastY + 8 && y > 240){ island.classList.add("hide"); dock.classList.add("hide"); }
+      else if(y < lastY - 8 || y < 90){ island.classList.remove("hide"); dock.classList.remove("hide"); }
+    }
+    lastY = y;
+    spyCheck();
+  }
+  window.addEventListener("scroll", onScroll, {passive:true});
+  onScroll();
 
   /* ---------- papel picado ---------- */
   (function(){
