@@ -1,0 +1,235 @@
+<meta charset="utf-8">
+<title>Itinerario · Traveling Seven: Mexico</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+/*__FONTS__*/
+
+:root{
+  --bone:#FAF5EC; --surface:#F3ECDE; --ink:#25221B; --ink-soft:#5C564A;
+  --pine:#1E453E; --pine-soft:#3A6A5F; --terracotta:#C1553B; --marigold:#D9A441;
+  --rosa:#B34A6B; --line:#DCD2BE; --card:#FFFDF7; --shadow:0 10px 30px rgba(37,34,27,.08);
+  --chip-cdmx:#C1553B; --chip-slp:#A97B22; --ok:#3A6A5F;
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --bone:#151F1C; --surface:#1B2724; --ink:#EFE7D7; --ink-soft:#B0A995;
+    --pine:#9FC2B6; --pine-soft:#7EA396; --terracotta:#E07A5A; --marigold:#E4B45F;
+    --rosa:#D77A97; --line:#31403B; --card:#1E2C28; --shadow:0 10px 30px rgba(0,0,0,.35);
+    --chip-cdmx:#E07A5A; --chip-slp:#E4B45F; --ok:#8FC0AF;
+  }
+}
+*{box-sizing:border-box}
+body{
+  margin:0; background:var(--bone); color:var(--ink);
+  font-family:'Source Sans 3',system-ui,sans-serif; font-size:17px; line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+h1,h2,h3{font-family:'Cormorant Garamond',Georgia,serif; line-height:1.1; margin:0; text-wrap:balance; font-weight:700}
+a{color:var(--terracotta)}
+.wrap{max-width:820px; margin:0 auto; padding:0 22px}
+
+.picado{overflow:hidden; line-height:0}
+.picado svg{display:block; width:100%; height:auto; min-width:680px}
+.flag{transform-origin:50% 0; animation:sway 5.2s ease-in-out infinite alternate}
+@keyframes sway{from{transform:rotate(-2.2deg)}to{transform:rotate(2.2deg)}}
+@media (prefers-reduced-motion: reduce){ *{animation:none !important} }
+
+header{padding:52px 0 20px; text-align:center}
+header .eyebrow{font-size:12.5px; letter-spacing:.22em; text-transform:uppercase; color:var(--terracotta); font-weight:600}
+header h1{font-size:clamp(38px,7vw,64px); color:var(--pine); margin:12px 0 4px}
+header h1 em{font-style:italic; font-weight:500; color:var(--terracotta)}
+header .tag{font-family:'Cormorant Garamond',Georgia,serif; font-style:italic; font-weight:500; font-size:clamp(18px,3vw,23px); color:var(--ink-soft)}
+.meta-line{margin-top:18px; font-size:14px; color:var(--ink-soft)}
+.cta{
+  display:inline-block; margin-top:18px; background:var(--terracotta); color:var(--bone);
+  text-decoration:none; font-weight:700; font-size:15px; border-radius:999px; padding:11px 26px;
+}
+.cta:hover{opacity:.9}
+
+.tiles{display:flex; gap:14px; justify-content:center; padding:44px 0 0}
+.tiles span{width:9px; height:9px; transform:rotate(45deg); background:var(--marigold); opacity:.85}
+.tiles span:nth-child(odd){background:var(--terracotta)}
+.tiles span:nth-child(4n){background:var(--pine-soft)}
+
+.cityhead{padding:52px 0 6px}
+.cityhead .eyebrow{font-size:12.5px; letter-spacing:.22em; text-transform:uppercase; color:var(--terracotta); font-weight:600; margin-bottom:8px}
+.cityhead h2{font-size:clamp(30px,5vw,40px); color:var(--pine)}
+.cityhead p{color:var(--ink-soft); margin:6px 0 0; font-size:15.5px}
+
+.dayrow{display:flex; flex-direction:column; gap:16px; margin-top:26px}
+.day{background:var(--card); border:1px solid var(--line); border-radius:14px; padding:20px 22px 18px; box-shadow:var(--shadow)}
+.day .drow{display:flex; align-items:center; gap:10px; margin-bottom:10px}
+.day .dnum{font-family:'Cormorant Garamond',Georgia,serif; font-weight:700; font-size:30px; color:var(--terracotta); line-height:1; min-width:36px}
+.day .dwhen{font-size:12.5px; letter-spacing:.14em; text-transform:uppercase; font-weight:600; color:var(--ink-soft)}
+.day .dtitle{font-family:'Cormorant Garamond',Georgia,serif; font-style:italic; font-weight:500; font-size:19px; color:var(--pine); margin-left:auto; text-align:right}
+.stop{display:flex; gap:11px; align-items:baseline; padding:7px 0; border-top:1px dashed var(--line)}
+.stop:first-of-type{border-top:none}
+.stop .when{font-weight:700; font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:var(--ink-soft); min-width:64px; flex:none}
+.stop .what{flex:1}
+.stop .what b{font-weight:600}
+.stop .by{font-size:12.5px; color:var(--ink-soft); font-style:italic}
+.stop .pin{color:var(--terracotta); font-size:13px; flex:none}
+.vt{
+  flex:none; font-size:12px; font-weight:700; font-variant-numeric:tabular-nums;
+  background:var(--surface); border:1px solid var(--line); color:var(--ok);
+  border-radius:999px; padding:1px 9px; white-space:nowrap;
+}
+.stop.open .what{color:var(--ink-soft); font-style:italic}
+.stop.open .dashline{display:inline-block; width:52px; border-bottom:1.5px dashed var(--line); transform:translateY(-4px); margin-right:8px}
+.stop.open a{font-style:normal; font-weight:600; font-size:14px}
+
+.bubble{background:var(--surface); border:1px solid var(--line); border-radius:14px; padding:22px 24px; margin-top:44px}
+.bubble h3{font-size:24px; color:var(--pine); margin-bottom:6px}
+.bubble p{margin:0 0 12px; font-size:14.5px; color:var(--ink-soft)}
+.pills{display:flex; flex-wrap:wrap; gap:8px}
+.pill{font-size:13.5px; background:var(--card); border:1px solid var(--line); border-radius:999px; padding:5px 14px; color:var(--ink)}
+.pill .n{color:var(--ink-soft); font-size:12px}
+.rejected{margin-top:16px; font-size:13.5px; color:var(--ink-soft); font-style:italic}
+
+footer{padding:56px 0 26px; text-align:center; color:var(--ink-soft)}
+footer .heart{font-family:'Cormorant Garamond',Georgia,serif; font-style:italic; font-weight:500; font-size:22px; color:var(--pine); margin-bottom:6px}
+footer .fine{font-size:13px}
+footer a{font-weight:600}
+</style>
+
+<div class="picado" aria-hidden="true"><svg id="picadoSvg" viewBox="0 0 1200 92" xmlns="http://www.w3.org/2000/svg"></svg></div>
+
+<header class="wrap">
+  <div class="eyebrow">Borrador · Draft No. 1 · 13 de julio</div>
+  <h1>El Itinerario <em>de los Siete</em></h1>
+  <div class="tag">Built from your votes — and still being built</div>
+  <p class="meta-line">Tallied from <b>51 votes</b> cast so far by Perla, Claudia &amp; Jesse ·
+  <b>Jerry, Angelina, Lucas y Noah: la boleta los espera.</b></p>
+  <a class="cta" href="https://travelingseven.netlify.app/#boleta">Vota en La Boleta →</a>
+</header>
+
+<div class="tiles" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+
+<section class="wrap cityhead">
+  <div class="eyebrow">Capítulo Uno · Ago 1 – 5</div>
+  <h2>Ciudad de México</h2>
+  <p>Cultura swept the ballot — castles, museums, and Perla's day of letters — with golden-hour wanders in between.</p>
+</section>
+<div class="wrap dayrow">
+
+  <article class="day">
+    <div class="drow"><span class="dnum">01</span><span class="dwhen">Sáb · Ago 1</span><span class="dtitle">La llegada</span></div>
+    <div class="stop"><span class="pin">✈</span><span class="what"><b>Land at MEX 12:45 PM</b> · UA 359, keys to Roma Norte #1304</span></div>
+    <div class="stop"><span class="when">Tarde</span><span class="what"><b>Golden hour por Roma &amp; Condesa</b> — first stroll of the trip</span><span class="vt">▲ 3 unánime</span></div>
+    <div class="stop"><span class="when">Noche</span><span class="what"><b>Taco crawl: al pastor edition</b> — welcome dinner</span><span class="vt">▲ 2</span></div>
+  </article>
+
+  <article class="day">
+    <div class="drow"><span class="dnum">02</span><span class="dwhen">Dom · Ago 2</span><span class="dtitle">Chapultepec &amp; Reforma</span></div>
+    <div class="stop"><span class="when">Mañana</span><span class="what"><b>Castillo de Chapultepec</b> + a wander through the Bosque</span><span class="vt">▲ 3 unánime</span></div>
+    <div class="stop"><span class="when">Tarde</span><span class="what"><b>Alameda + Palacio de Bellas Artes</b>, then the <b>family photo at the Ángel</b> — Reforma is car-free on Sundays, perfect for it</span><span class="vt">▲ 3 + ▲ 2</span></div>
+    <div class="stop"><span class="when">Noche</span><span class="what"><b>Mariachis en Plaza Garibaldi</b></span><span class="vt">▲ 1</span></div>
+  </article>
+
+  <article class="day">
+    <div class="drow"><span class="dnum">03</span><span class="dwhen">Lun · Ago 3</span><span class="dtitle">El día de las letras</span></div>
+    <div class="stop"><span class="when">Mañana</span><span class="what"><b>Biblioteca Vasconcelos</b> — the floating-shelves library <span class="by">· idea de Perla</span></span><span class="vt">▲ 3 unánime</span></div>
+    <div class="stop"><span class="when">Tarde</span><span class="what"><b>Taller de Letras</b> + café-hopping in Roma <span class="by">· idea de Perla</span></span><span class="vt">▲ 3 unánime</span></div>
+    <div class="stop open"><span class="when">Noche</span><span class="what"><span class="dashline"></span>por decidir — <a href="https://travelingseven.netlify.app/#boleta">vota</a></span></div>
+  </article>
+
+  <article class="day">
+    <div class="drow"><span class="dnum">04</span><span class="dwhen">Mar · Ago 4</span><span class="dtitle">Museos y misterio</span></div>
+    <div class="stop"><span class="when">Mañana</span><span class="what"><b>Museo Nacional de Antropología</b></span><span class="vt">▲ 3 unánime</span></div>
+    <div class="stop open"><span class="when">Tarde</span><span class="what"><span class="dashline"></span>the big CDMX question — Xochimilco ▲1, Casa Azul ▲1, Teotihuacán and Jesse's Basílica await votes · <a href="https://travelingseven.netlify.app/#boleta">decide it</a></span></div>
+    <div class="stop"><span class="when">Noche</span><span class="what"><b>Churros y chocolate en El Moro</b> — farewell to CDMX, dulcemente</span><span class="vt">▲ 2</span></div>
+  </article>
+
+  <article class="day">
+    <div class="drow"><span class="dnum">05</span><span class="dwhen">Mié · Ago 5</span><span class="dtitle">Rumbo a San Luis</span></div>
+    <div class="stop"><span class="pin">✈</span><span class="what"><b>AM 1534</b> · MEX 2:00 PM → SLP 3:20 PM · check in at Hotel Agua de Plata</span></div>
+    <div class="stop"><span class="when">Noche</span><span class="what"><b>Plaza de Armas de noche</b> + first round of <b>enchiladas potosinas</b></span><span class="vt">▲ 1 + ▲ 3</span></div>
+  </article>
+
+</div>
+
+<div class="tiles" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+
+<section class="wrap cityhead">
+  <div class="eyebrow">Capítulo Dos · Ago 5 – 10</div>
+  <h2>San Luis Potosí</h2>
+  <p>The sabores landslide: the family's SLP plan is, officially, to eat. The adventure day is still unwritten.</p>
+</section>
+<div class="wrap dayrow">
+
+  <article class="day">
+    <div class="drow"><span class="dnum">06</span><span class="dwhen">Jue · Ago 6</span><span class="dtitle">Centro potosino</span></div>
+    <div class="stop"><span class="when">Mañana</span><span class="what"><b>Templo del Carmen</b> + centro histórico walk</span><span class="vt">▲ 1</span></div>
+    <div class="stop"><span class="when">Tarde</span><span class="what"><b>Mercado República</b> gift run, then <b>Chocolates Costanzo</b> <span class="by">· idea de Perla</span></span><span class="vt">▲ 2 + ▲ 3</span></div>
+    <div class="stop"><span class="when">Noche</span><span class="what"><b>Leyendas walking tour</b> del centro</span><span class="vt">▲ 1</span></div>
+  </article>
+
+  <article class="day">
+    <div class="drow"><span class="dnum">07</span><span class="dwhen">Vie · Ago 7</span><span class="dtitle">¿La Aventura Grande?</span></div>
+    <div class="stop open"><span class="when">Todo el día</span><span class="what"><span class="dashline"></span>completely unwritten. Huasteca waterfalls and the Cerro de San Pedro ghost town have <b>zero votes</b> — this whole day belongs to whoever shows up at <a href="https://travelingseven.netlify.app/#boleta">La Boleta</a></span></div>
+  </article>
+
+  <article class="day">
+    <div class="drow"><span class="dnum">08</span><span class="dwhen">Sáb · Ago 8</span><span class="dtitle">Sábado de sopes</span></div>
+    <div class="stop open"><span class="when">Mañana</span><span class="what"><span class="dashline"></span>por decidir — <a href="https://travelingseven.netlify.app/#boleta">vota</a> <span class="by">(Tangamanga was voted down ▼2 — new ideas welcome)</span></span></div>
+    <div class="stop"><span class="when">Comida</span><span class="what"><b>Sopes del Parque de Morales</b> <span class="by">· idea de Jesse</span></span><span class="vt">▲ 1</span></div>
+    <div class="stop"><span class="when">Tarde</span><span class="what"><b>Lucas picks one thing — unsupervised</b> — his official comodín</span><span class="vt">▲ 1</span></div>
+  </article>
+
+  <article class="day">
+    <div class="drow"><span class="dnum">09</span><span class="dwhen">Dom · Ago 9</span><span class="dtitle">La despedida</span></div>
+    <div class="stop open"><span class="when">Mañana</span><span class="what"><span class="dashline"></span>por decidir — <a href="https://travelingseven.netlify.app/#boleta">vota</a></span></div>
+    <div class="stop"><span class="when">Tarde</span><span class="what"><b>Las Tortugas</b> <span class="by">· idea de Perla</span> — last full afternoon, eaten well</span><span class="vt">▲ 3 unánime</span></div>
+    <div class="stop"><span class="when">Noche</span><span class="what"><b>Nieve de garrafa en la plaza</b> — golden-hour goodbye to San Luis</span><span class="vt">▲ 3 unánime</span></div>
+  </article>
+
+  <article class="day">
+    <div class="drow"><span class="dnum">10</span><span class="dwhen">Lun · Ago 10</span><span class="dtitle">Hasta luego</span></div>
+    <div class="stop"><span class="pin">✈</span><span class="what"><b>UA 2405</b> · SLP 11:45 AM → Houston · <b>UA 2197</b> → ORD 9:40 PM · checkout by 9:15</span></div>
+  </article>
+
+</div>
+
+<div class="wrap">
+  <div class="bubble">
+    <h3>En la burbuja — one vote from making the cut</h3>
+    <p>These are alive but undecided. The four of you who haven't voted hold the deciding hand.</p>
+    <div class="pills">
+      <span class="pill">Xochimilco trajineras <span class="n">▲1</span></span>
+      <span class="pill">Casa Azul — Frida <span class="n">▲1</span></span>
+      <span class="pill">Teotihuacán <span class="n">0</span></span>
+      <span class="pill">Basílica <span class="n">· idea de Jesse · 0</span></span>
+      <span class="pill">Lucha libre <span class="n">0</span></span>
+      <span class="pill">Huasteca — Tamasopo <span class="n">0</span></span>
+      <span class="pill">Cerro de San Pedro <span class="n">0</span></span>
+      <span class="pill">Matching t-shirt photo <span class="n">0</span></span>
+    </div>
+    <p class="rejected">Voted off the island: Parque Tangamanga ▼2 · hot-air balloon ▼1 · Museo de la Máscara ▼1</p>
+  </div>
+</div>
+
+<footer>
+  <div class="tiles" aria-hidden="true" style="padding:0 0 30px"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+  <div class="heart">Hecho con cariño para los Siete</div>
+  <div class="fine">Draft itinerary · voting stays open at <a href="https://travelingseven.netlify.app/">travelingseven.netlify.app</a> · re-tallied as votes arrive</div>
+</footer>
+
+<script>
+(function(){
+  var PALETTE = ["#C1553B","#D9A441","#1E453E","#B34A6B","#3A6A5F"];
+  var svg = document.getElementById("picadoSvg"), NS = "http://www.w3.org/2000/svg";
+  var flagW = 74, gap = 6, n = Math.ceil(1200 / (flagW + gap));
+  function mk(tag,attrs){ var e=document.createElementNS(NS,tag); for(var k in attrs) e.setAttribute(k,attrs[k]); return e; }
+  svg.appendChild(mk("line",{x1:0,y1:3,x2:1200,y2:3,stroke:"var(--ink-soft)","stroke-width":1.5}));
+  for(var i=0;i<n;i++){
+    var g = mk("g",{"class":"flag",style:"animation-delay:"+(i*0.35)+"s;transform-box:fill-box"});
+    var x = i*(flagW+gap)+4, cx = x+flagW/2, color = PALETTE[i%PALETTE.length];
+    g.appendChild(mk("path",{d:"M"+x+" 4 h"+flagW+" v56 l-"+(flagW/2)+" 18 l-"+(flagW/2)+" -18 z",fill:color,opacity:.92}));
+    g.appendChild(mk("circle",{cx:cx,cy:30,r:9,fill:"var(--bone)",opacity:.9}));
+    g.appendChild(mk("circle",{cx:cx-22,cy:20,r:4,fill:"var(--bone)",opacity:.9}));
+    g.appendChild(mk("circle",{cx:cx+22,cy:20,r:4,fill:"var(--bone)",opacity:.9}));
+    g.appendChild(mk("rect",{x:cx-3.2,y:46,width:6.4,height:6.4,transform:"rotate(45 "+cx+" 49)",fill:"var(--bone)",opacity:.9}));
+    svg.appendChild(g);
+  }
+})();
+</script>
