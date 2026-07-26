@@ -1,3 +1,5 @@
+<!doctype html>
+<html lang="es">
 <meta charset="utf-8">
 <title>Itinerario · Traveling Seven: Mexico</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -108,7 +110,10 @@ footer a{font-weight:600}
 (function(){
   try{
     var l = JSON.parse(localStorage.getItem("mx.lang") || '"es"');
-    if(l === "en") document.documentElement.setAttribute("data-lang","en");
+    if(l === "en"){
+      document.documentElement.setAttribute("data-lang","en");
+      document.documentElement.lang = "en";
+    }
   }catch(e){}
 })();
 </script>
@@ -266,6 +271,7 @@ footer a{font-weight:600}
   function setLang(l){
     if(l === "en") document.documentElement.setAttribute("data-lang","en");
     else document.documentElement.removeAttribute("data-lang");
+    document.documentElement.lang = l;
     try{ localStorage.setItem("mx.lang", JSON.stringify(l)); }catch(e){}
     paint();
   }
