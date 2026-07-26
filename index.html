@@ -67,6 +67,12 @@ body{
   font-size:17px; line-height:1.6;
   -webkit-font-smoothing:antialiased;
 }
+.en{display:none}
+:root[data-lang="en"] .en{display:inline}
+:root[data-lang="en"] .es{display:none}
+.langsw{display:inline-flex; align-self:center; border:1px solid var(--line); border-radius:999px; overflow:hidden; margin-right:6px; flex:none}
+.langsw button{background:none; border:none; padding:4px 11px; font-size:12px; font-weight:700; color:var(--ink-soft); cursor:pointer}
+.langsw button.on{background:var(--pine); color:var(--bone)}
 h1,h2,h3{font-family:'Cormorant Garamond',Georgia,serif; line-height:1.1; margin:0; text-wrap:balance; font-weight:700;}
 a{color:var(--terracotta)}
 button{font:inherit; color:inherit}
@@ -328,38 +334,50 @@ footer .fine{font-size:13px}
   .idea .votes{margin-left:22px}
 }
 </style>
+<script>
+(function(){
+  try{
+    var l = JSON.parse(localStorage.getItem("mx.lang") || '"es"');
+    if(l === "en"){
+      document.documentElement.setAttribute("data-lang","en");
+      document.documentElement.lang = "en";
+    }
+  }catch(e){}
+})();
+</script>
 
 <div class="picado" aria-hidden="true"><svg id="picadoSvg" viewBox="0 0 1200 92" xmlns="http://www.w3.org/2000/svg"></svg></div>
 
 <header class="hero wrap">
-  <div class="dates">1 – 10 de agosto · 2026</div>
+  <div class="dates"><span class="es">1 – 10 de agosto · 2026</span><span class="en">August 1 – 10, 2026</span></div>
   <h1>Traveling Seven: <em>Mexico</em></h1>
-  <div class="tagline">Los siete viajeros toman México</div>
+  <div class="tagline"><span class="es">Los siete viajeros toman México</span><span class="en">The seven travelers take Mexico</span></div>
   <div class="cities">
     <span>Chicago</span><span class="dot"></span>
     <span>Ciudad de México</span><span class="dot"></span>
     <span>San Luis Potosí</span>
   </div>
   <div class="count" id="count" role="timer" aria-label="Countdown to departure">
-    <div class="cell"><div class="num" id="cd">–</div><div class="lbl">días</div></div>
-    <div class="cell"><div class="num" id="ch">–</div><div class="lbl">horas</div></div>
+    <div class="cell"><div class="num" id="cd">–</div><div class="lbl"><span class="es">días</span><span class="en">days</span></div></div>
+    <div class="cell"><div class="num" id="ch">–</div><div class="lbl"><span class="es">horas</span><span class="en">hours</span></div></div>
     <div class="cell"><div class="num" id="cm">–</div><div class="lbl">min</div></div>
-    <div class="cell"><div class="num" id="cs">–</div><div class="lbl">seg</div></div>
+    <div class="cell"><div class="num" id="cs">–</div><div class="lbl"><span class="es">seg</span><span class="en">sec</span></div></div>
   </div>
   <div class="count-note" id="countNote">until wheels up from O'Hare — Aug 1, 9:19 AM</div>
 </header>
 
 <nav aria-label="Sections">
   <div class="row wrap" style="padding-left:16px;padding-right:16px">
-    <a data-goto="ruta">La Ruta</a>
-    <a data-goto="dias">Los Días</a>
-    <a data-goto="boleta">La Boleta</a>
-    <a data-goto="casas">Las Casas</a>
-    <a data-goto="siete">Los Siete</a>
-    <a data-goto="maleta">La Maleta</a>
-    <a data-goto="antojos">Antojos</a>
+    <a data-goto="ruta"><span class="es">La Ruta</span><span class="en">The Route</span></a>
+    <a data-goto="dias"><span class="es">Los Días</span><span class="en">The Days</span></a>
+    <a data-goto="boleta"><span class="es">La Boleta</span><span class="en">The Ballot</span></a>
+    <a data-goto="casas"><span class="es">Las Casas</span><span class="en">The Stays</span></a>
+    <a data-goto="siete"><span class="es">Los Siete</span><span class="en">The Seven</span></a>
+    <a data-goto="maleta"><span class="es">La Maleta</span><span class="en">Packing</span></a>
+    <a data-goto="antojos"><span class="es">Antojos</span><span class="en">Food List</span></a>
     <span class="spacer"></span>
-    <button id="themeBtn" aria-label="Toggle dark mode">◐ tema</button>
+    <span class="langsw" role="group" aria-label="Language"><button id="langES">ES</button><button id="langEN">EN</button></span>
+    <button id="themeBtn" aria-label="Toggle dark mode">◐ <span class="es">tema</span><span class="en">theme</span></button>
   </div>
 </nav>
 
@@ -391,7 +409,7 @@ footer .fine{font-size:13px}
         <div class="arrow"></div>
         <div style="text-align:right"><div class="apt">MEX</div><div class="city">Mexico City</div><div class="time">12:45 PM</div></div>
       </div>
-      <div class="meta">4h 26m · Boeing 737 MAX 8 · row 30, todos juntos</div>
+      <div class="meta">4h 26m · Boeing 737 MAX 8 · <span class="es">row 30, todos juntos</span><span class="en">row 30, all together</span></div>
     </div>
     <div class="flight reveal">
       <div class="top"><span class="fno">Aeroméxico · AM 1534</span><span class="badge">new time</span><span style="font-size:13px;color:var(--ink-soft)">Wed, Aug 5</span></div>
@@ -435,9 +453,9 @@ footer .fine{font-size:13px}
   </div>
 
   <div class="steps reveal">
-    <div class="step"><div class="n">1</div><div><h3>Vota</h3><p>Six lotería cards below hold the family's ideas. Thumbs up what excites you, down what doesn't.</p></div></div>
-    <div class="step"><div class="n">2</div><div><h3>Propón</h3><p>Got a better idea? Add it to any card and it joins the ballot for everyone.</p></div></div>
-    <div class="step"><div class="n">3</div><div><h3>Se arma solo</h3><p>When the votes are in, these open days fill themselves with the winners.</p></div></div>
+    <div class="step"><div class="n">1</div><div><h3><span class="es">Vota</span><span class="en">Vote</span></h3><p>Six lotería cards below hold the family's ideas. Thumbs up what excites you, down what doesn't.</p></div></div>
+    <div class="step"><div class="n">2</div><div><h3><span class="es">Propón</span><span class="en">Propose</span></h3><p>Got a better idea? Add it to any card and it joins the ballot for everyone.</p></div></div>
+    <div class="step"><div class="n">3</div><div><h3><span class="es">Se arma solo</span><span class="en">It builds itself</span></h3><p>When the votes are in, these open days fill themselves with the winners.</p></div></div>
   </div>
 
   <button class="viewtoggle" id="viewToggle">Ver itinerario recomendado →</button>
@@ -460,7 +478,7 @@ footer .fine{font-size:13px}
   <div class="loteria reveal" id="loteriaGrid"></div>
 
   <div class="voterbar reveal" id="voterBar">
-    <span class="q">¿Quién eres?</span>
+    <span class="q"><span class="es">¿Quién eres?</span><span class="en">Who are you?</span></span>
     <span class="bench-note" id="benchNote" hidden>Noah votes from the bench — not on this trip, still one of the Seven.</span>
   </div>
 
@@ -476,7 +494,7 @@ footer .fine{font-size:13px}
     <select id="ideaCat" required>
       <option value="" disabled selected>Category…</option>
     </select>
-    <button type="submit">Proponer</button>
+    <button type="submit"><span class="es">Proponer</span><span class="en">Propose</span></button>
     <p class="hint">Your idea joins the ballot for the city tab you're on. Signed with your name above.</p>
   </form>
 </section>
@@ -551,7 +569,7 @@ footer .fine{font-size:13px}
 
 <footer>
   <div class="tiles" aria-hidden="true" style="padding:0 0 34px"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
-  <div class="heart">Hecho con cariño para los Siete</div>
+  <div class="heart"><span class="es">Hecho con cariño para los Siete</span><span class="en">Made with love for the Seven</span></div>
   <div class="fine">ProjectMX · agosto 2026 · Chicago → CDMX → SLP</div>
 </footer>
 
@@ -579,6 +597,22 @@ footer .fine{font-size:13px}
     root.setAttribute("data-theme", current === "dark" ? "light" : "dark");
   });
 
+  function paintLang(){
+    var en = document.documentElement.getAttribute("data-lang") === "en";
+    $("langES").classList.toggle("on", !en);
+    $("langEN").classList.toggle("on", en);
+  }
+  function setLang(l){
+    if(l === "en") document.documentElement.setAttribute("data-lang","en");
+    else document.documentElement.removeAttribute("data-lang");
+    document.documentElement.lang = l;
+    try{ localStorage.setItem("mx.lang", JSON.stringify(l)); }catch(e){}
+    fillCatSel(); paintLang();
+  }
+  $("langES").addEventListener("click", function(){ setLang("es"); });
+  $("langEN").addEventListener("click", function(){ setLang("en"); });
+  paintLang();
+
   /* ---------- papel picado ---------- */
   (function(){
     var svg = $("picadoSvg"), NS = "http://www.w3.org/2000/svg";
@@ -603,12 +637,13 @@ footer .fine{font-size:13px}
   var tripEnd = new Date("2026-08-10T21:40:00-05:00").getTime();
   var note = $("countNote");
   function pad(v){ return v<10 ? "0"+v : ""+v; }
+  function bi(es, en){ return '<span class="es">'+es+'</span><span class="en">'+en+'</span>'; }
   function tick(){
     var now = Date.now(), diff = target - now;
     if(diff <= 0){
-      if(now < landing) note.textContent = "¡En el aire! Next stop: Mexico City.";
-      else if(now < tripEnd) note.textContent = "¡Ya estamos en México! Enjoy every minute.";
-      else note.textContent = "Trip complete — hasta la próxima aventura.";
+      if(now < landing) note.innerHTML = bi("¡En el aire! Next stop: Mexico City.","In the air! Next stop: Mexico City.");
+      else if(now < tripEnd) note.innerHTML = bi("¡Ya estamos en México! Enjoy every minute.","We're in Mexico! Enjoy every minute.");
+      else note.innerHTML = bi("Trip complete — hasta la próxima aventura.","Trip complete — until the next adventure.");
       $("cd").textContent="0"; $("ch").textContent="00"; $("cm").textContent="00"; $("cs").textContent="00";
       return;
     }
@@ -666,10 +701,18 @@ footer .fine{font-size:13px}
   function f2c(f){ return Math.round((f-32)*5/9); }
   function pad2(n){ return n<10 ? "0"+n : ""+n; }
   function esc(s){ var d=document.createElement("div"); d.textContent=s; return d.innerHTML; }
+  var WD_EN = {"Sáb":"Sat","Dom":"Sun","Lun":"Mon","Mar":"Tue","Mié":"Wed","Jue":"Thu","Vie":"Fri"};
+  var CITYLBL_EN = {"Vuelo + CDMX":"Flight + CDMX","CDMX → SLP":"CDMX → SLP","Hasta luego":"Homeward"};
+  var SLOT_EN = {"Mañana":"Morning","Tarde":"Afternoon","Noche":"Evening"};
+  var DRAFT_T_EN = {1:"We're off!",2:"The historic center",3:"Roma & Condesa",4:"Coyoacán & Xochimilco",
+    5:"Travel day, part two",6:"Historic San Luis",7:"Free day — dream big",8:"Tangamanga park",
+    9:"Markets & farewell",10:"Homeward"};
   function renderDays(){
     var grid = $("daysGrid"); grid.innerHTML = "";
     $("draftNote").hidden = !draftView;
-    $("viewToggle").textContent = draftView ? "← Volver a los días abiertos" : "Ver itinerario recomendado →";
+    $("viewToggle").innerHTML = draftView
+      ? bi("← Volver a los días abiertos","← Back to the open days")
+      : bi("Ver itinerario recomendado →","See the recommended itinerary →");
     DAYS.forEach(function(d){
       var hi = useF ? d.hi+"°" : f2c(d.hi)+"°";
       var lo = useF ? d.lo+"°" : f2c(d.lo)+"°";
@@ -677,19 +720,19 @@ footer .fine{font-size:13px}
       el.className = "day reveal in";
       var body = "";
       if(draftView){
-        body = '<h3>'+esc(d.draft.t)+'</h3><p>'+esc(d.draft.d)+'</p>';
+        body = '<h3>'+bi(esc(d.draft.t), esc(DRAFT_T_EN[d.n] || d.draft.t))+'</h3><p>'+esc(d.draft.d)+'</p>';
       } else {
         body = '<div class="body">';
         d.pins.forEach(function(p){ body += '<div class="pin"><span class="g">'+p[0]+'</span><b>'+esc(p[1])+'</b></div>'; });
-        d.open.forEach(function(s){ body += '<div class="slot"><span class="s">'+s+'</span><span class="dash"></span><span class="tbd">por decidir</span></div>'; });
-        if(d.open.length){ body += '<button class="votecta" data-goto="boleta">Vota abajo ↓</button>'; }
-        else if(d.n===10){ body += '<p style="font-style:italic">¡Hasta la próxima aventura!</p>'; }
+        d.open.forEach(function(s){ body += '<div class="slot"><span class="s">'+bi(s, SLOT_EN[s] || s)+'</span><span class="dash"></span><span class="tbd">'+bi("por decidir","to be decided")+'</span></div>'; });
+        if(d.open.length){ body += '<button class="votecta" data-goto="boleta">'+bi("Vota abajo ↓","Vote below ↓")+'</button>'; }
+        else if(d.n===10){ body += '<p style="font-style:italic">'+bi("¡Hasta la próxima aventura!","Until the next adventure!")+'</p>'; }
         body += '</div>';
       }
       el.innerHTML =
         '<div class="drow"><span class="dnum">'+pad2(d.n)+'</span>'+
-        '<span class="dwhen">'+d.wd+' · '+d.date+'</span>'+
-        '<span class="chip '+d.city+'">'+d.cityLbl+'</span></div>'+ body +
+        '<span class="dwhen">'+bi(d.wd, WD_EN[d.wd] || d.wd)+' · '+bi(d.date, d.date.replace("Ago","Aug"))+'</span>'+
+        '<span class="chip '+d.city+'">'+bi(d.cityLbl, CITYLBL_EN[d.cityLbl] || d.cityLbl)+'</span></div>'+ body +
         '<div class="wx">'+ICONS[d.ic]+
         '<span><span class="hi">'+hi+'</span> / <span class="lo">'+lo+'</span></span>'+
         '<span style="margin-left:auto;font-size:12.5px">'+wxLabel(d.ic)+'</span></div>';
@@ -731,7 +774,7 @@ footer .fine{font-size:13px}
           d.lo = Math.round(src.temperature_2m_min[i]*9/5+32);
           d.ic = icon(src.weathercode[i]);
         });
-        $("wxNote").textContent = "Pronóstico en vivo — updated every time the page opens.";
+        $("wxNote").innerHTML = bi("Pronóstico en vivo — se actualiza cada vez que abres la página.","Live forecast — updates every time the page opens.");
         renderDays();
       }).catch(function(){});
     }catch(e){}
@@ -739,45 +782,45 @@ footer .fine{font-size:13px}
 
   /* ---------- la boleta ---------- */
   var CATS = [
-    {key:"aventura", num:1, name:"LA AVENTURA GRANDE", desc:"The big day trips. Vote like you only get one — because you kind of do.",
+    {key:"aventura", num:1, name:"LA AVENTURA GRANDE", nameEn:"THE BIG ADVENTURE", desc:"The big day trips. Vote like you only get one — because you kind of do.",
      ic:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"><path d="M12 4 L20 20 H4 Z"/><path d="M9.4 9.2 L12 12 L14.6 9.2"/></svg>'},
-    {key:"cultura", num:2, name:"CULTURA", desc:"Museums, castles, and history. Morning brain food for the crew.",
+    {key:"cultura", num:2, name:"CULTURA", nameEn:"CULTURE", desc:"Museums, castles, and history. Morning brain food for the crew.",
      ic:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"><path d="M4 9 L12 3.5 L20 9 H4 Z"/><path d="M6 9v8M12 9v8M18 9v8M4 20h16"/></svg>'},
-    {key:"sabores", num:3, name:"SABORES", desc:"Everything we eat, from street tacos to churros. Vote with your stomach.",
+    {key:"sabores", num:3, name:"SABORES", nameEn:"FLAVORS", desc:"Everything we eat, from street tacos to churros. Vote with your stomach.",
      ic:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M13.5 6 C17 6 19 9 18.5 12.5 C18 16.5 15 20 11.5 20 C8.5 20 7 17.5 7.8 14.5 C8.8 11 10.5 6 13.5 6 Z"/><path d="M13.5 6 C13.5 4.5 14.5 3.5 16 3.2"/></svg>'},
-    {key:"callejeo", num:4, name:"CALLEJEO", desc:"Plazas, parks, and golden-hour wanders. The art of doing nothing, beautifully.",
+    {key:"callejeo", num:4, name:"CALLEJEO", nameEn:"WANDERING", desc:"Plazas, parks, and golden-hour wanders. The art of doing nothing, beautifully.",
      ic:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><circle cx="13" cy="4.5" r="1.8"/><path d="M10 21 L12 15 L10.5 10.5 L13.5 8.5 L15.5 12 H18M10.5 10.5 L8 12.5 L6.5 10.8M12 15 L15 17.5 L15.5 21"/></svg>'},
-    {key:"noche", num:5, name:"LA NOCHE", desc:"After-dark plans. Yes, lucha libre counts as culture.",
+    {key:"noche", num:5, name:"LA NOCHE", nameEn:"THE NIGHT", desc:"After-dark plans. Yes, lucha libre counts as culture.",
      ic:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"><path d="M14.5 3.5 A8.5 8.5 0 1 0 21 13.5 A7 7 0 0 1 14.5 3.5 Z"/></svg>'},
-    {key:"comodin", num:6, name:"EL COMODÍN", desc:"The wildcard. Anything goes — top vote gets honored, no questions asked.",
+    {key:"comodin", num:6, name:"EL COMODÍN", nameEn:"THE WILDCARD", desc:"The wildcard. Anything goes — top vote gets honored, no questions asked.",
      ic:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="3"/><circle cx="9" cy="9" r="1.1" fill="currentColor" stroke="none"/><circle cx="15" cy="9" r="1.1" fill="currentColor" stroke="none"/><circle cx="12" cy="12" r="1.1" fill="currentColor" stroke="none"/><circle cx="9" cy="15" r="1.1" fill="currentColor" stroke="none"/><circle cx="15" cy="15" r="1.1" fill="currentColor" stroke="none"/></svg>'}
   ];
   var SEEDS = [
-    {id:"teo", city:"cdmx", cat:"aventura", title:"Pirámides de Teotihuacán — day trip", by:"starter"},
-    {id:"xochi", city:"cdmx", cat:"aventura", title:"Trajineras de Xochimilco", by:"starter"},
-    {id:"frida", city:"cdmx", cat:"cultura", title:"Casa Azul — Museo Frida Kahlo", by:"starter"},
-    {id:"antro", city:"cdmx", cat:"cultura", title:"Museo Nacional de Antropología", by:"starter"},
-    {id:"castillo", city:"cdmx", cat:"cultura", title:"Castillo de Chapultepec", by:"starter"},
+    {id:"teo", city:"cdmx", cat:"aventura", title:"Pirámides de Teotihuacán — day trip", en:"Teotihuacán pyramids — day trip", by:"starter"},
+    {id:"xochi", city:"cdmx", cat:"aventura", title:"Trajineras de Xochimilco", en:"Xochimilco canal boats", by:"starter"},
+    {id:"frida", city:"cdmx", cat:"cultura", title:"Casa Azul — Museo Frida Kahlo", en:"Casa Azul — Frida Kahlo Museum", by:"starter"},
+    {id:"antro", city:"cdmx", cat:"cultura", title:"Museo Nacional de Antropología", en:"National Museum of Anthropology", by:"starter"},
+    {id:"castillo", city:"cdmx", cat:"cultura", title:"Castillo de Chapultepec", en:"Chapultepec Castle", by:"starter"},
     {id:"pastor", city:"cdmx", cat:"sabores", title:"Taco crawl: al pastor edition", by:"starter"},
-    {id:"moro", city:"cdmx", cat:"sabores", title:"Churros y chocolate en El Moro", by:"starter"},
-    {id:"mercoyo", city:"cdmx", cat:"sabores", title:"Antojitos del Mercado de Coyoacán", by:"starter"},
-    {id:"romawalk", city:"cdmx", cat:"callejeo", title:"Golden hour por Roma & Condesa", by:"starter"},
-    {id:"alameda", city:"cdmx", cat:"callejeo", title:"Alameda + Bellas Artes stroll", by:"starter"},
-    {id:"lucha", city:"cdmx", cat:"noche", title:"Lucha libre en la Arena México", by:"starter"},
-    {id:"garibaldi", city:"cdmx", cat:"noche", title:"Mariachis en Plaza Garibaldi", by:"starter"},
+    {id:"moro", city:"cdmx", cat:"sabores", title:"Churros y chocolate en El Moro", en:"Churros & hot chocolate at El Moro", by:"starter"},
+    {id:"mercoyo", city:"cdmx", cat:"sabores", title:"Antojitos del Mercado de Coyoacán", en:"Street snacks at the Coyoacán market", by:"starter"},
+    {id:"romawalk", city:"cdmx", cat:"callejeo", title:"Golden hour por Roma & Condesa", en:"Golden hour in Roma & Condesa", by:"starter"},
+    {id:"alameda", city:"cdmx", cat:"callejeo", title:"Alameda + Bellas Artes stroll", en:"Alameda park + Bellas Artes stroll", by:"starter"},
+    {id:"lucha", city:"cdmx", cat:"noche", title:"Lucha libre en la Arena México", en:"Lucha libre wrestling at Arena México", by:"starter"},
+    {id:"garibaldi", city:"cdmx", cat:"noche", title:"Mariachis en Plaza Garibaldi", en:"Mariachis at Plaza Garibaldi", by:"starter"},
     {id:"angel", city:"cdmx", cat:"comodin", title:"Family photo — Ángel de la Independencia", by:"starter"},
     {id:"globo", city:"cdmx", cat:"comodin", title:"Hot-air balloon over Teotihuacán (early birds only)", by:"starter"},
-    {id:"huasteca", city:"slp", cat:"aventura", title:"Cascadas de Tamasopo — Huasteca day trip", by:"starter"},
+    {id:"huasteca", city:"slp", cat:"aventura", title:"Cascadas de Tamasopo — Huasteca day trip", en:"Tamasopo waterfalls — Huasteca day trip", by:"starter"},
     {id:"cerro", city:"slp", cat:"aventura", title:"Cerro de San Pedro ghost town", by:"starter"},
-    {id:"carmen", city:"slp", cat:"cultura", title:"Templo del Carmen + Museo del Virreinato", by:"starter"},
-    {id:"mascara", city:"slp", cat:"cultura", title:"Museo Nacional de la Máscara", by:"starter"},
+    {id:"carmen", city:"slp", cat:"cultura", title:"Templo del Carmen + Museo del Virreinato", en:"Templo del Carmen + Viceroyalty Museum", by:"starter"},
+    {id:"mascara", city:"slp", cat:"cultura", title:"Museo Nacional de la Máscara", en:"National Mask Museum", by:"starter"},
     {id:"enchiladas", city:"slp", cat:"sabores", title:"Enchiladas potosinas — the definitive tasting", by:"starter"},
-    {id:"republica", city:"slp", cat:"sabores", title:"Mercado República snack & gift run", by:"starter"},
-    {id:"nieve", city:"slp", cat:"sabores", title:"Nieve de garrafa en la plaza", by:"starter"},
-    {id:"calzada", city:"slp", cat:"callejeo", title:"Calzada de Guadalupe evening walk", by:"starter"},
-    {id:"tanga", city:"slp", cat:"callejeo", title:"Picnic en Parque Tangamanga", by:"starter"},
-    {id:"armas", city:"slp", cat:"noche", title:"Plaza de Armas de noche", by:"starter"},
-    {id:"leyendas", city:"slp", cat:"noche", title:"Leyendas walking tour del centro", by:"starter"},
+    {id:"republica", city:"slp", cat:"sabores", title:"Mercado República snack & gift run", en:"Mercado República snack & gift run", by:"starter"},
+    {id:"nieve", city:"slp", cat:"sabores", title:"Nieve de garrafa en la plaza", en:"Hand-churned ice cream (nieve de garrafa) in the plaza", by:"starter"},
+    {id:"calzada", city:"slp", cat:"callejeo", title:"Calzada de Guadalupe evening walk", en:"Calzada de Guadalupe evening walk", by:"starter"},
+    {id:"tanga", city:"slp", cat:"callejeo", title:"Picnic en Parque Tangamanga", en:"Picnic at Tangamanga park", by:"starter"},
+    {id:"armas", city:"slp", cat:"noche", title:"Plaza de Armas de noche", en:"Plaza de Armas by night", by:"starter"},
+    {id:"leyendas", city:"slp", cat:"noche", title:"Leyendas walking tour del centro", en:"Legends walking tour of the old town", by:"starter"},
     {id:"camisetas", city:"slp", cat:"comodin", title:"Matching Traveling Seven t-shirt photo", by:"starter"},
     {id:"lucaspick", city:"slp", cat:"comodin", title:"Lucas picks one thing, unsupervised", by:"starter"}
   ];
@@ -808,7 +851,7 @@ footer .fine{font-size:13px}
     b.type = "button"; b.className = "lcard"; b.style.setProperty("--cc","var(--cat-"+c.key+")");
     b.setAttribute("aria-label", c.name+" — filter ballot");
     b.innerHTML = '<span class="in" style="display:block"><span class="no">№ '+c.num+'</span>'+c.ic+
-      '<span class="nm" style="display:block">'+c.name+'</span><span class="ds" style="display:block">'+c.desc+'</span></span>';
+      '<span class="nm" style="display:block">'+bi(c.name, c.nameEn)+'</span><span class="ds" style="display:block">'+c.desc+'</span></span>';
     b.addEventListener("click", function(){
       activeCat = activeCat===c.key ? null : c.key;
       lg.querySelectorAll(".lcard").forEach(function(x,i){ x.classList.toggle("active", CATS[i].key===activeCat); });
@@ -842,9 +885,17 @@ footer .fine{font-size:13px}
 
   var catSel = $("ideaCat");
   CATS.forEach(function(c){
-    var o = document.createElement("option"); o.value = c.key; o.textContent = "№ "+c.num+" · "+c.name;
+    var o = document.createElement("option"); o.value = c.key;
     catSel.appendChild(o);
   });
+  function fillCatSel(){
+    var en = document.documentElement.getAttribute("data-lang") === "en";
+    catSel.options[0].textContent = en ? "Category…" : "Categoría…";
+    CATS.forEach(function(c, i){
+      catSel.options[i+1].textContent = "№ "+c.num+" · "+(en ? c.nameEn : c.name);
+    });
+  }
+  fillCatSel();
 
   function renderIdeas(){
     var list = $("ideaList"); list.innerHTML = "";
@@ -858,10 +909,11 @@ footer .fine{font-size:13px}
     shown.forEach(function(idea){
       var t = tally(idea.id);
       var row = document.createElement("div"); row.className = "idea";
-      var by = idea.by==="starter" ? "" : '<div class="by">de '+esc(idea.by)+'</div>';
+      var by = idea.by==="starter" ? "" : '<div class="by">'+bi("de "+esc(idea.by), "by "+esc(idea.by))+'</div>';
+      var title = idea.en && idea.en !== idea.title ? bi(esc(idea.title), esc(idea.en)) : esc(idea.title);
       row.innerHTML =
         '<span class="cdot" style="background:var(--cat-'+idea.cat+')"></span>'+
-        '<div><div class="tt">'+esc(idea.title)+'</div>'+by+'</div>'+
+        '<div><div class="tt">'+title+'</div>'+by+'</div>'+
         '<div class="votes">'+
         '<button type="button" class="vbtn up'+(t.mine>0?" sel":"")+'">▲ '+t.up+'</button>'+
         '<button type="button" class="vbtn dn'+(t.mine<0?" sel":"")+'">▼ '+t.dn+'</button></div>';
@@ -870,7 +922,7 @@ footer .fine{font-size:13px}
       list.appendChild(row);
     });
     if(!shown.length){
-      list.innerHTML = '<p style="color:var(--ink-soft);font-style:italic">Nothing here yet — be the first to propose something below.</p>';
+      list.innerHTML = '<p style="color:var(--ink-soft);font-style:italic">'+bi("Aún no hay nada aquí — sé la primera persona en proponer algo abajo.","Nothing here yet — be the first to propose something below.")+'</p>';
     }
   }
 
@@ -898,16 +950,16 @@ footer .fine{font-size:13px}
     renderIdeas();
   });
 
-  function setSync(on, text){
+  function setSync(on, es, en){
     $("syncLine").classList.toggle("on", on);
-    $("syncText").textContent = text;
+    $("syncText").innerHTML = bi(es, en);
   }
   function send(msg){
     if(!BOLETA_API){ queue.push(msg); store("mx.queue", queue); return; }
     fetch(BOLETA_API, {method:"POST", body:JSON.stringify(msg)})
       .then(function(r){ return r.json(); })
       .then(function(res){ if(res && res.state) applyState(res.state); })
-      .catch(function(){ queue.push(msg); store("mx.queue", queue); setSync(false, "Sin conexión — reintentando; tus votos no se pierden."); });
+      .catch(function(){ queue.push(msg); store("mx.queue", queue); setSync(false, "Sin conexión — reintentando; tus votos no se pierden.","Offline — retrying; your votes are safe."); });
   }
   function applyState(state){
     serverIdeas = (state.ideas || []).filter(function(i){
@@ -922,15 +974,15 @@ footer .fine{font-size:13px}
   }
   function sync(){
     if(!BOLETA_API){
-      setSync(false, "Modo preliminar — tus votos viven en este dispositivo y se suman cuando el sitio estrene casa nueva.");
+      setSync(false, "Modo preliminar — tus votos viven en este dispositivo y se suman cuando el sitio estrene casa nueva.","Preview mode — your votes live on this device and sync when the site gets its permanent home.");
       return;
     }
     var pending = queue.slice(); queue = []; store("mx.queue", queue);
     pending.forEach(send);
     fetch(BOLETA_API + "?action=state")
       .then(function(r){ return r.json(); })
-      .then(function(state){ applyState(state); setSync(true, "Sincronizado — se actualiza solo."); })
-      .catch(function(){ setSync(false, "Sin conexión — mostrando la última versión."); });
+      .then(function(state){ applyState(state); setSync(true, "Sincronizado — se actualiza solo.","Synced — updates on its own."); })
+      .catch(function(){ setSync(false, "Sin conexión — mostrando la última versión.","Offline — showing the last version."); });
   }
   sync();
   if(BOLETA_API) setInterval(sync, 30000);
@@ -983,7 +1035,7 @@ footer .fine{font-size:13px}
   });
   function updatePack(fromClick){
     var done = PACK.filter(function(_,i){ return packState[i]; }).length;
-    $("packCount").textContent = done + " of " + PACK.length + " packed";
+    $("packCount").innerHTML = bi(done + " de " + PACK.length + " empacados", done + " of " + PACK.length + " packed");
     $("packBar").style.width = (done/PACK.length*100) + "%";
     if(fromClick && done === PACK.length) burst();
   }
@@ -1005,7 +1057,7 @@ footer .fine{font-size:13px}
     b.type = "button";
     b.className = "antojo" + (foodState[i] ? " done" : "");
     b.innerHTML = '<span class="box">'+(foodState[i] ? "✓" : "")+'</span><span>'+f.n+'</span>'+
-      (f.season ? '<span class="season">¡temporada!</span>' : '<span class="season" style="color:var(--ink-soft)">'+f.w+'</span>');
+      (f.season ? '<span class="season">'+bi("¡temporada!","in season!")+'</span>' : '<span class="season" style="color:var(--ink-soft)">'+f.w+'</span>');
     b.addEventListener("click", function(){
       foodState[i] = !foodState[i]; store("mx.food", foodState);
       b.classList.toggle("done", !!foodState[i]);
@@ -1016,7 +1068,7 @@ footer .fine{font-size:13px}
   });
   function updateFood(fromClick){
     var done = FOOD.filter(function(_,i){ return foodState[i]; }).length;
-    $("foodCount").textContent = done + " of " + FOOD.length + " probados";
+    $("foodCount").innerHTML = bi(done + " de " + FOOD.length + " probados", done + " of " + FOOD.length + " tried");
     $("foodBar").style.width = (done/FOOD.length*100) + "%";
     if(fromClick && done === FOOD.length) burst();
   }
