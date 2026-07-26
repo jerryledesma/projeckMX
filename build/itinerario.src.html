@@ -44,6 +44,70 @@ button{font:inherit; color:inherit}
 .langtoggle button{background:none; border:none; padding:7px 18px; cursor:pointer; font-size:13.5px; font-weight:700; color:var(--ink-soft)}
 .langtoggle button.on{background:var(--pine); color:var(--bone)}
 
+/* ---------- shared floating nav ---------- */
+#island{
+  position:fixed; left:50%; transform:translateX(-50%); top:12px; z-index:60;
+  display:flex; align-items:center; gap:2px; padding:6px 10px;
+  background:color-mix(in srgb, var(--bone) 74%, transparent);
+  backdrop-filter:blur(14px) saturate(1.4); -webkit-backdrop-filter:blur(14px) saturate(1.4);
+  border:1px solid var(--line); border-radius:999px; box-shadow:var(--shadow);
+  transition:top .35s ease, transform .35s ease;
+  max-width:calc(100% - 24px);
+}
+#island.below{top:104px}
+#island.hide{transform:translate(-50%,-220%)}
+#island .mono7{
+  width:26px; height:26px; border-radius:50%; background:var(--terracotta); color:var(--bone);
+  font-family:'Cormorant Garamond',Georgia,serif; font-weight:700; font-size:15px;
+  display:flex; align-items:center; justify-content:center; margin-right:6px; flex:none;
+  text-decoration:none;
+}
+#island a{
+  position:relative; z-index:1; padding:7px 12px; font-size:13.5px; font-weight:600;
+  color:var(--ink-soft); text-decoration:none; white-space:nowrap; cursor:pointer; border-radius:999px;
+  transition:color .25s ease;
+}
+#island a.mono7{padding:0}
+#island a:hover{color:var(--terracotta)}
+#island a.mono7:hover{color:var(--bone)}
+#island a.active{color:var(--bone)}
+#island .ind{
+  position:absolute; z-index:0; top:6px; bottom:6px; left:0; width:0; border-radius:999px;
+  background:var(--terracotta); opacity:0;
+  transition:transform .5s cubic-bezier(.3,1.35,.4,1), width .5s cubic-bezier(.3,1.35,.4,1), opacity .2s;
+}
+#island .divider{width:1px; height:18px; background:var(--line); margin:0 6px}
+#island .langtoggle{background:none; border-color:var(--line)}
+#island .langtoggle button{padding:5px 12px; font-size:12px}
+#dock{
+  position:fixed; left:50%; transform:translateX(-50%);
+  bottom:calc(10px + env(safe-area-inset-bottom)); z-index:60;
+  display:none; align-items:stretch; gap:2px;
+  width:min(430px, calc(100% - 20px)); padding:6px 8px;
+  background:color-mix(in srgb, var(--bone) 78%, transparent);
+  backdrop-filter:blur(14px) saturate(1.4); -webkit-backdrop-filter:blur(14px) saturate(1.4);
+  border:1px solid var(--line); border-radius:22px; box-shadow:var(--shadow);
+  transition:transform .35s ease;
+}
+#dock.hide{transform:translate(-50%,220%)}
+#dock a, #dock button{
+  background:none; border:none; cursor:pointer; flex:1; text-decoration:none;
+  display:flex; flex-direction:column; align-items:center; gap:2px;
+  padding:6px 2px; color:var(--ink-soft); border-radius:14px; font:inherit;
+}
+#dock svg{width:22px; height:22px}
+#dock .dl{font-size:10px; font-weight:700; letter-spacing:.04em}
+#dock .active{color:var(--terracotta)}
+.cityhead{scroll-margin-top:64px}
+@media (max-width:760px){
+  #island{display:none}
+  #dock{display:flex}
+}
+@media (min-width:761px){
+  .langbar{display:none}
+  header.wrap{padding-top:100px}
+}
+
 header{padding:30px 0 20px; text-align:center}
 header .eyebrow{font-size:12.5px; letter-spacing:.22em; text-transform:uppercase; color:var(--terracotta); font-weight:600}
 header h1{font-size:clamp(38px,7vw,64px); color:var(--pine); margin:12px 0 4px}
@@ -115,6 +179,37 @@ footer a{font-weight:600}
 
 <div class="picado" aria-hidden="true"><svg id="picadoSvg" viewBox="0 0 1200 92" xmlns="http://www.w3.org/2000/svg"></svg></div>
 
+<nav id="island" aria-label="Navigation">
+  <a class="mono7" href="index.html" aria-label="Back to the main site">7</a>
+  <span class="ind" aria-hidden="true"></span>
+  <a data-goto="cdmx">CDMX</a>
+  <a data-goto="slp">San Luis</a>
+  <a href="index.html#boleta"><span class="es">La Boleta</span><span class="en">The Ballot</span></a>
+  <span class="divider" aria-hidden="true"></span>
+  <span class="langtoggle" role="group" aria-label="Language">
+    <button id="langES2">ES</button><button id="langEN2">EN</button>
+  </span>
+</nav>
+
+<nav id="dock" aria-label="Navigation">
+  <a href="index.html">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 11 12 4.5 19.5 11"/><path d="M6.5 10v9.5h11V10"/><path d="M10.5 19.5v-5h3v5"/></svg>
+    <span class="dl"><span class="es">Inicio</span><span class="en">Home</span></span>
+  </a>
+  <button data-goto="cdmx">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M12 4 L20 20 H4 Z"/><path d="M9.4 9.2 L12 12 L14.6 9.2"/></svg>
+    <span class="dl">CDMX</span>
+  </button>
+  <button data-goto="slp">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M4 9 L12 3.5 L20 9 H4 Z"/><path d="M6 9v8M12 9v8M18 9v8M4 20h16"/></svg>
+    <span class="dl">San Luis</span>
+  </button>
+  <a href="index.html#boleta">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M9 12.5l2.2 2.2L15.5 10"/></svg>
+    <span class="dl"><span class="es">Boleta</span><span class="en">Ballot</span></span>
+  </a>
+</nav>
+
 <div class="langbar wrap">
   <div class="langtoggle" role="group" aria-label="Language">
     <button id="langES">Español</button><button id="langEN">English</button>
@@ -133,7 +228,7 @@ footer a{font-weight:600}
 
 <div class="tiles" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
 
-<section class="wrap cityhead">
+<section class="wrap cityhead" id="cdmx">
   <div class="eyebrow"><span class="es">Capítulo Uno · Ago 1 – 5</span><span class="en">Chapter One · Aug 1 – 5</span></div>
   <h2><span class="es">Ciudad de México</span><span class="en">Mexico City</span></h2>
   <p><span class="es">Cultura swept the ballot — castles, museums, and Perla's day of letters — with golden-hour wanders in between.</span><span class="en">Culture swept the ballot — castles, museums, and Perla's day of letters — with golden-hour wanders in between.</span></p>
@@ -178,7 +273,7 @@ footer a{font-weight:600}
 
 <div class="tiles" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
 
-<section class="wrap cityhead">
+<section class="wrap cityhead" id="slp">
   <div class="eyebrow"><span class="es">Capítulo Dos · Ago 5 – 10</span><span class="en">Chapter Two · Aug 5 – 10</span></div>
   <h2>San Luis Potosí</h2>
   <p><span class="es">The sabores landslide: the family's SLP plan is, officially, to eat. The adventure day is still unwritten.</span><span class="en">The food-vote landslide: the family's San Luis plan is, officially, to eat. The adventure day is still unwritten.</span></p>
@@ -260,18 +355,65 @@ footer a{font-weight:600}
     svg.appendChild(g);
   }
 
-  var bES = document.getElementById("langES"), bEN = document.getElementById("langEN");
+  function $(id){ return document.getElementById(id); }
   function current(){ return document.documentElement.getAttribute("data-lang") === "en" ? "en" : "es"; }
-  function paint(){ var l = current(); bES.classList.toggle("on", l==="es"); bEN.classList.toggle("on", l==="en"); }
+  function paint(){
+    var l = current();
+    ["langES","langES2"].forEach(function(id){ var b=$(id); if(b) b.classList.toggle("on", l==="es"); });
+    ["langEN","langEN2"].forEach(function(id){ var b=$(id); if(b) b.classList.toggle("on", l==="en"); });
+  }
   function setLang(l){
     if(l === "en") document.documentElement.setAttribute("data-lang","en");
     else document.documentElement.removeAttribute("data-lang");
     document.documentElement.lang = l;
     try{ localStorage.setItem("mx.lang", JSON.stringify(l)); }catch(e){}
-    paint();
+    paint(); moveInd();
   }
-  bES.addEventListener("click", function(){ setLang("es"); });
-  bEN.addEventListener("click", function(){ setLang("en"); });
+  ["langES","langES2"].forEach(function(id){ $(id).addEventListener("click", function(){ setLang("es"); }); });
+  ["langEN","langEN2"].forEach(function(id){ $(id).addEventListener("click", function(){ setLang("en"); }); });
   paint();
+
+  /* shared floating nav behavior */
+  var island = $("island"), dock = $("dock"), ind = island.querySelector(".ind");
+  var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  function goTo(id){ var el=$(id); if(el) el.scrollIntoView({behavior: reduced ? "auto" : "smooth", block:"start"}); }
+  document.querySelectorAll("[data-goto]").forEach(function(a){
+    a.addEventListener("click", function(e){ e.preventDefault(); goTo(a.getAttribute("data-goto")); });
+  });
+  function setActive(id){
+    document.querySelectorAll("#island a[data-goto], #dock [data-goto]").forEach(function(el){
+      el.classList.toggle("active", el.getAttribute("data-goto") === id);
+    });
+    moveInd();
+  }
+  function moveInd(){
+    var a = island.querySelector("a.active");
+    if(!a){ ind.style.opacity = 0; return; }
+    ind.style.opacity = 1;
+    ind.style.width = a.offsetWidth + "px";
+    ind.style.transform = "translateX(" + a.offsetLeft + "px)";
+  }
+  var lastActive = null;
+  function spyCheck(){
+    var mark = window.innerHeight * 0.42;
+    var current = null;
+    ["cdmx","slp"].forEach(function(id){
+      var el = $(id);
+      if(el && el.getBoundingClientRect().top <= mark) current = id;
+    });
+    if(current !== lastActive){ lastActive = current; setActive(current); }
+  }
+  var lastY = window.scrollY;
+  function onScroll(){
+    var y = window.scrollY;
+    island.classList.toggle("below", y < 70);
+    if(y > lastY + 8 && y > 240){ island.classList.add("hide"); dock.classList.add("hide"); }
+    else if(y < lastY - 8 || y < 90){ island.classList.remove("hide"); dock.classList.remove("hide"); }
+    lastY = y;
+    spyCheck();
+  }
+  window.addEventListener("scroll", onScroll, {passive:true});
+  window.addEventListener("resize", function(){ moveInd(); spyCheck(); });
+  onScroll();
 })();
 </script>
