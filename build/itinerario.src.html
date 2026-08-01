@@ -131,7 +131,14 @@ header .tag{font-family:'Cormorant Garamond',Georgia,serif; font-style:italic; f
 .cityhead p{color:var(--ink-soft); margin:6px 0 0; font-size:15.5px}
 
 .dayrow{display:flex; flex-direction:column; gap:16px; margin-top:26px}
-.day{background:var(--card); border:1px solid var(--line); border-radius:14px; padding:20px 22px 18px; box-shadow:var(--shadow)}
+.day{background:var(--card); border:1px solid var(--line); border-radius:14px; padding:20px 22px 18px; box-shadow:var(--shadow); transition:border-color .3s ease}
+.day.today{border:2px solid var(--terracotta); box-shadow:0 0 0 5px color-mix(in srgb, var(--terracotta) 12%, transparent), var(--shadow)}
+.hoy{
+  background:var(--terracotta); color:var(--bone); font-size:10.5px; font-weight:800;
+  letter-spacing:.16em; text-transform:uppercase; border-radius:999px; padding:3px 10px; margin-left:8px;
+}
+.day.past{opacity:.62}
+.day.past .dtitle{text-decoration:line-through; text-decoration-thickness:1px; text-decoration-color:var(--line)}
 .day .drow{display:flex; align-items:center; gap:10px; margin-bottom:10px}
 .day .dnum{font-family:'Cormorant Garamond',Georgia,serif; font-weight:700; font-size:30px; color:var(--terracotta); line-height:1; min-width:36px}
 .day .dwhen{font-size:12.5px; letter-spacing:.14em; text-transform:uppercase; font-weight:600; color:var(--ink-soft)}
@@ -217,13 +224,11 @@ footer a{font-weight:600}
 </div>
 
 <header class="wrap">
-  <div class="eyebrow"><span class="es">Borrador · Draft No. 1 · 13 de julio</span><span class="en">Draft No. 1 · July 13</span></div>
+  <div class="eyebrow"><span class="es">Borrador No. 2 · 1 de agosto · ¡en camino!</span><span class="en">Draft No. 2 · August 1 · en route!</span></div>
   <h1><span class="es">El Itinerario <em>de los Siete</em></span><span class="en">The Itinerary <em>of the Seven</em></span></h1>
-  <div class="tag"><span class="es">Built from your votes — and still being built</span><span class="en">Built from your votes — and still being built</span></div>
-  <p class="meta-line"><span class="es">Tallied from <b>51 votes</b> cast so far by Perla, Claudia &amp; Jesse ·
-  <b>Jerry, Angelina, Lucas y Noah: la boleta los espera.</b></span><span class="en">Tallied from <b>51 votes</b> cast so far by Perla, Claudia &amp; Jesse ·
-  <b>Jerry, Angelina, Lucas &amp; Noah: the ballot is waiting for you.</b></span></p>
-  <a class="cta" href="https://travelingseven.netlify.app/#boleta"><span class="es">Vota en La Boleta →</span><span class="en">Vote in La Boleta →</span></a>
+  <div class="tag"><span class="es">Lo que votaron — ya en marcha</span><span class="en">What you voted for — now under way</span></div>
+  <p class="meta-line"><span class="es">Contados <b>77 votos</b> de Perla, Jesse, Claudia, Jerry y Lucas · <b>Angelina y Noah:</b> la boleta sigue abierta, y las ideas nuevas necesitan votos.</span><span class="en">Tallied from <b>77 votes</b> by Perla, Jesse, Claudia, Jerry &amp; Lucas · <b>Angelina &amp; Noah:</b> the ballot is still open, and the new ideas need votes.</span></p>
+  <a class="cta" href="index.html#boleta"><span class="es">Vota en La Boleta →</span><span class="en">Vote in La Boleta →</span></a>
 </header>
 
 <div class="tiles" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
@@ -231,42 +236,42 @@ footer a{font-weight:600}
 <section class="wrap cityhead" id="cdmx">
   <div class="eyebrow"><span class="es">Capítulo Uno · Ago 1 – 5</span><span class="en">Chapter One · Aug 1 – 5</span></div>
   <h2><span class="es">Ciudad de México</span><span class="en">Mexico City</span></h2>
-  <p><span class="es">Cultura swept the ballot — castles, museums, and Perla's day of letters — with golden-hour wanders in between.</span><span class="en">Culture swept the ballot — castles, museums, and Perla's day of letters — with golden-hour wanders in between.</span></p>
+  <p><span class="es">Cuatro días votados casi por unanimidad: castillos, la biblioteca de Perla, tacos al pastor y caminatas doradas por Roma.</span><span class="en">Four days voted through nearly unanimously: castles, Perla's library, tacos al pastor, and golden-hour walks through Roma.</span></p>
 </section>
 <div class="wrap dayrow">
 
-  <article class="day">
+  <article class="day" data-date="2026-08-01">
     <div class="drow"><span class="dnum">01</span><span class="dwhen"><span class="es">Sáb · Ago 1</span><span class="en">Sat · Aug 1</span></span><span class="dtitle"><span class="es">La llegada</span><span class="en">The arrival</span></span></div>
-    <div class="stop"><span class="pin">✈</span><span class="what"><b>Land at MEX 12:45 PM</b> · UA 359, <span class="es">keys to Roma Norte #1304</span><span class="en">keys to the Roma Norte apartment #1304</span></span></div>
-    <div class="stop"><span class="when"><span class="es">Tarde</span><span class="en">Afternoon</span></span><span class="what"><b><span class="es">Golden hour por Roma &amp; Condesa</span><span class="en">Golden hour in Roma &amp; Condesa</span></b> — <span class="es">first stroll of the trip</span><span class="en">first stroll of the trip</span></span><span class="vt">▲ 3 <span class="es">unánime</span><span class="en">unanimous</span></span></div>
-    <div class="stop"><span class="when"><span class="es">Noche</span><span class="en">Evening</span></span><span class="what"><b>Taco crawl: al pastor edition</b> — <span class="es">welcome dinner</span><span class="en">welcome dinner</span></span><span class="vt">▲ 2</span></div>
+    <div class="stop"><span class="pin">✈</span><span class="what"><b>UA 359 · ORD 9:19 AM → MEX 12:45 PM</b> · <span class="es">llaves del depa en Roma Norte #1304</span><span class="en">keys to the Roma Norte apartment #1304</span></span></div>
+    <div class="stop"><span class="when"><span class="es">Tarde</span><span class="en">Afternoon</span></span><span class="what"><b><span class="es">Golden hour por Roma &amp; Condesa</span><span class="en">Golden hour in Roma &amp; Condesa</span></b> — <span class="es">la primera caminata del viaje</span><span class="en">the first walk of the trip</span></span><span class="vt">▲ 5 <span class="es">unánime</span><span class="en">unanimous</span></span></div>
+    <div class="stop"><span class="when"><span class="es">Noche</span><span class="en">Evening</span></span><span class="what"><b>Taco crawl: al pastor edition</b> — <span class="es">cena de bienvenida</span><span class="en">welcome dinner</span></span><span class="vt">▲ 4</span></div>
   </article>
 
-  <article class="day">
+  <article class="day" data-date="2026-08-02">
     <div class="drow"><span class="dnum">02</span><span class="dwhen"><span class="es">Dom · Ago 2</span><span class="en">Sun · Aug 2</span></span><span class="dtitle"><span class="es">Chapultepec &amp; Reforma</span><span class="en">Chapultepec &amp; Reforma</span></span></div>
-    <div class="stop"><span class="when"><span class="es">Mañana</span><span class="en">Morning</span></span><span class="what"><b><span class="es">Castillo de Chapultepec</span><span class="en">Chapultepec Castle</span></b> + <span class="es">a wander through the Bosque</span><span class="en">a wander through the park</span></span><span class="vt">▲ 3 <span class="es">unánime</span><span class="en">unanimous</span></span></div>
-    <div class="stop"><span class="when"><span class="es">Tarde</span><span class="en">Afternoon</span></span><span class="what"><b><span class="es">Alameda + Palacio de Bellas Artes</span><span class="en">Alameda park + Palacio de Bellas Artes</span></b>, <span class="es">then the <b>family photo at the Ángel</b> — Reforma is car-free on Sundays, perfect for it</span><span class="en">then the <b>family photo at the Ángel monument</b> — Reforma avenue is car-free on Sundays, perfect for it</span></span><span class="vt">▲ 3 + ▲ 2</span></div>
-    <div class="stop"><span class="when"><span class="es">Noche</span><span class="en">Evening</span></span><span class="what"><b><span class="es">Mariachis en Plaza Garibaldi</span><span class="en">Mariachis at Plaza Garibaldi</span></b></span><span class="vt">▲ 1</span></div>
+    <div class="stop"><span class="when"><span class="es">Mañana</span><span class="en">Morning</span></span><span class="what"><b><span class="es">Castillo de Chapultepec</span><span class="en">Chapultepec Castle</span></b> + <span class="es">vuelta por el bosque</span><span class="en">a wander through the park</span></span><span class="vt">▲ 4</span></div>
+    <div class="stop"><span class="when"><span class="es">Tarde</span><span class="en">Afternoon</span></span><span class="what"><b><span class="es">Alameda + Palacio de Bellas Artes</span><span class="en">Alameda park + Palacio de Bellas Artes</span></b>, <span class="es">y la <b>foto familiar en el Ángel</b> — Reforma cierra a los coches los domingos</span><span class="en">then the <b>family photo at the Ángel</b> — Reforma closes to cars on Sundays</span></span><span class="vt">▲ 3 + ▲ 4</span></div>
+    <div class="stop"><span class="when"><span class="es">Noche</span><span class="en">Evening</span></span><span class="what"><b><span class="es">Mariachis en Plaza Garibaldi</span><span class="en">Mariachis at Plaza Garibaldi</span></b></span><span class="vt">▲ 3</span></div>
   </article>
 
-  <article class="day">
+  <article class="day" data-date="2026-08-03">
     <div class="drow"><span class="dnum">03</span><span class="dwhen"><span class="es">Lun · Ago 3</span><span class="en">Mon · Aug 3</span></span><span class="dtitle"><span class="es">El día de las letras</span><span class="en">The day of letters</span></span></div>
-    <div class="stop"><span class="when"><span class="es">Mañana</span><span class="en">Morning</span></span><span class="what"><b>Biblioteca Vasconcelos</b> — <span class="es">the floating-shelves library</span><span class="en">the famous floating-shelves library</span> <span class="by"><span class="es">· idea de Perla</span><span class="en">· Perla's idea</span></span></span><span class="vt">▲ 3 <span class="es">unánime</span><span class="en">unanimous</span></span></div>
-    <div class="stop"><span class="when"><span class="es">Tarde</span><span class="en">Afternoon</span></span><span class="what"><b>Taller de Letras</b> + <span class="es">café-hopping in Roma</span><span class="en">café-hopping in Roma</span> <span class="by"><span class="es">· idea de Perla</span><span class="en">· Perla's idea</span></span></span><span class="vt">▲ 3 <span class="es">unánime</span><span class="en">unanimous</span></span></div>
-    <div class="stop open"><span class="when"><span class="es">Noche</span><span class="en">Evening</span></span><span class="what"><span class="dashline"></span><span class="es">por decidir — <a href="https://travelingseven.netlify.app/#boleta">vota</a></span><span class="en">to be decided — <a href="https://travelingseven.netlify.app/#boleta">vote</a></span></span></div>
+    <div class="stop"><span class="when"><span class="es">Mañana</span><span class="en">Morning</span></span><span class="what"><b>Biblioteca Vasconcelos</b> — <span class="es">la biblioteca de los libreros flotantes</span><span class="en">the floating-shelves library</span> <span class="by"><span class="es">· idea de Perla</span><span class="en">· Perla’s idea</span></span></span><span class="vt">▲ 4</span></div>
+    <div class="stop"><span class="when"><span class="es">Tarde</span><span class="en">Afternoon</span></span><span class="what"><b>Taller de Letras</b> + <span class="es">cafés por la Roma</span><span class="en">café-hopping in Roma</span> <span class="by"><span class="es">· idea de Perla</span><span class="en">· Perla’s idea</span></span></span><span class="vt">▲ 5 <span class="es">unánime</span><span class="en">unanimous</span></span></div>
+    <div class="stop"><span class="when"><span class="es">Noche</span><span class="en">Evening</span></span><span class="what"><b><span class="es">La misión del Oxxo</span><span class="en">The convenience-store mission</span></b> — <span class="es">botanas raras y un Boing</span><span class="en">weird snacks and a Boing</span> <span class="by"><span class="es">· idea de Lucas</span><span class="en">· Lucas’s idea</span></span></span><span class="vt">▲ 2</span></div>
   </article>
 
-  <article class="day">
-    <div class="drow"><span class="dnum">04</span><span class="dwhen"><span class="es">Mar · Ago 4</span><span class="en">Tue · Aug 4</span></span><span class="dtitle"><span class="es">Museos y misterio</span><span class="en">Museums &amp; a mystery</span></span></div>
-    <div class="stop"><span class="when"><span class="es">Mañana</span><span class="en">Morning</span></span><span class="what"><b><span class="es">Museo Nacional de Antropología</span><span class="en">National Museum of Anthropology</span></b></span><span class="vt">▲ 3 <span class="es">unánime</span><span class="en">unanimous</span></span></div>
-    <div class="stop open"><span class="when"><span class="es">Tarde</span><span class="en">Afternoon</span></span><span class="what"><span class="dashline"></span><span class="es">the big CDMX question — Xochimilco ▲1, Casa Azul ▲1, Teotihuacán and Jesse's Basílica await votes · <a href="https://travelingseven.netlify.app/#boleta">decide it</a></span><span class="en">the big Mexico City question — the Xochimilco canal boats ▲1, Frida Kahlo's Casa Azul ▲1, the Teotihuacán pyramids and Jesse's Basilica idea all await votes · <a href="https://travelingseven.netlify.app/#boleta">decide it</a></span></span></div>
-    <div class="stop"><span class="when"><span class="es">Noche</span><span class="en">Evening</span></span><span class="what"><b><span class="es">Churros y chocolate en El Moro</span><span class="en">Churros &amp; hot chocolate at El Moro</span></b> — <span class="es">farewell to CDMX, dulcemente</span><span class="en">a sweet goodbye to Mexico City</span></span><span class="vt">▲ 2</span></div>
+  <article class="day" data-date="2026-08-04">
+    <div class="drow"><span class="dnum">04</span><span class="dwhen"><span class="es">Mar · Ago 4</span><span class="en">Tue · Aug 4</span></span><span class="dtitle"><span class="es">Museos y el gran empate</span><span class="en">Museums &amp; the great tie</span></span></div>
+    <div class="stop"><span class="when"><span class="es">Mañana</span><span class="en">Morning</span></span><span class="what"><b><span class="es">Museo Nacional de Antropología</span><span class="en">National Museum of Anthropology</span></b></span><span class="vt">▲ 4</span></div>
+    <div class="stop open"><span class="when"><span class="es">Tarde</span><span class="en">Afternoon</span></span><span class="what"><span class="dashline"></span><span class="es"><b>empate a tres — ▲2 cada uno:</b> Xochimilco · Casa Azul · la Basílica (idea de Jesse). Alguien tiene que romperlo · <a href="index.html#boleta">decídelo</a></span><span class="en"><b>a three-way tie — ▲2 each:</b> Xochimilco canal boats · Frida’s Casa Azul · the Basilica (Jesse’s idea). Someone has to break it · <a href="index.html#boleta">decide it</a></span></span></div>
+    <div class="stop"><span class="when"><span class="es">Noche</span><span class="en">Evening</span></span><span class="what"><b><span class="es">Churros y chocolate en El Moro</span><span class="en">Churros &amp; hot chocolate at El Moro</span></b> — <span class="es">despedida dulce de la capital</span><span class="en">a sweet goodbye to the capital</span></span><span class="vt">▲ 4</span></div>
   </article>
 
-  <article class="day">
+  <article class="day" data-date="2026-08-05">
     <div class="drow"><span class="dnum">05</span><span class="dwhen"><span class="es">Mié · Ago 5</span><span class="en">Wed · Aug 5</span></span><span class="dtitle"><span class="es">Rumbo a San Luis</span><span class="en">On to San Luis</span></span></div>
-    <div class="stop"><span class="pin">✈</span><span class="what"><b>AM 1534</b> · MEX 2:00 PM → SLP 3:20 PM · <span class="es">check in at Hotel Agua de Plata</span><span class="en">check in at Hotel Agua de Plata</span></span></div>
-    <div class="stop"><span class="when"><span class="es">Noche</span><span class="en">Evening</span></span><span class="what"><b><span class="es">Plaza de Armas de noche</span><span class="en">Plaza de Armas by night</span></b> + <span class="es">first round of <b>enchiladas potosinas</b></span><span class="en">first round of <b>enchiladas potosinas</b> (the local specialty)</span></span><span class="vt">▲ 1 + ▲ 3</span></div>
+    <div class="stop"><span class="pin">✈</span><span class="what"><b>AM 1534</b> · MEX 2:00 PM → SLP 3:20 PM · <span class="es">check-in en el Hotel Agua de Plata</span><span class="en">check in at Hotel Agua de Plata</span></span></div>
+    <div class="stop"><span class="when"><span class="es">Noche</span><span class="en">Evening</span></span><span class="what"><b><span class="es">Plaza de Armas de noche</span><span class="en">Plaza de Armas by night</span></b> + <span class="es">las primeras <b>enchiladas potosinas</b></span><span class="en">the first round of <b>enchiladas potosinas</b></span></span><span class="vt">▲ 1 + ▲ 3</span></div>
   </article>
 
 </div>
@@ -276,58 +281,58 @@ footer a{font-weight:600}
 <section class="wrap cityhead" id="slp">
   <div class="eyebrow"><span class="es">Capítulo Dos · Ago 5 – 10</span><span class="en">Chapter Two · Aug 5 – 10</span></div>
   <h2>San Luis Potosí</h2>
-  <p><span class="es">The sabores landslide: the family's SLP plan is, officially, to eat. The adventure day is still unwritten.</span><span class="en">The food-vote landslide: the family's San Luis plan is, officially, to eat. The adventure day is still unwritten.</span></p>
+  <p><span class="es">Los sabores arrasaron: el plan potosino es, oficialmente, comer. El viernes de aventura sigue en blanco.</span><span class="en">The flavors swept it: the San Luis plan is, officially, to eat. Friday’s adventure day is still blank.</span></p>
 </section>
 <div class="wrap dayrow">
 
-  <article class="day">
+  <article class="day" data-date="2026-08-06">
     <div class="drow"><span class="dnum">06</span><span class="dwhen"><span class="es">Jue · Ago 6</span><span class="en">Thu · Aug 6</span></span><span class="dtitle"><span class="es">Centro potosino</span><span class="en">Historic San Luis</span></span></div>
-    <div class="stop"><span class="when"><span class="es">Mañana</span><span class="en">Morning</span></span><span class="what"><b>Templo del Carmen</b> + <span class="es">centro histórico walk</span><span class="en">historic center walk</span></span><span class="vt">▲ 1</span></div>
-    <div class="stop"><span class="when"><span class="es">Tarde</span><span class="en">Afternoon</span></span><span class="what"><b>Mercado República</b> <span class="es">gift run, then <b>Chocolates Costanzo</b></span><span class="en">gift shopping, then <b>Chocolates Costanzo</b> (the legendary local chocolatier)</span> <span class="by"><span class="es">· idea de Perla</span><span class="en">· Perla's idea</span></span></span><span class="vt">▲ 2 + ▲ 3</span></div>
-    <div class="stop"><span class="when"><span class="es">Noche</span><span class="en">Evening</span></span><span class="what"><b><span class="es">Leyendas walking tour</span><span class="en">Legends &amp; ghost-stories walking tour</span></b> <span class="es">del centro</span><span class="en">of the old town</span></span><span class="vt">▲ 1</span></div>
+    <div class="stop"><span class="when"><span class="es">Mañana</span><span class="en">Morning</span></span><span class="what"><b>Templo del Carmen</b> + <span class="es">Museo del Virreinato</span><span class="en">the Viceroyalty Museum</span></span><span class="vt">▲ 2</span></div>
+    <div class="stop"><span class="when"><span class="es">Tarde</span><span class="en">Afternoon</span></span><span class="what"><b>Mercado República</b> <span class="es">para regalos, y luego <b>Chocolates Costanzo</b></span><span class="en">for gifts, then <b>Chocolates Costanzo</b></span> <span class="by"><span class="es">· idea de Perla</span><span class="en">· Perla’s idea</span></span></span><span class="vt">▲ 2 + ▲ 3</span></div>
+    <div class="stop"><span class="when"><span class="es">Noche</span><span class="en">Evening</span></span><span class="what"><b><span class="es">Tour de leyendas</span><span class="en">Legends walking tour</span></b> <span class="es">por el centro</span><span class="en">of the old town</span></span><span class="vt">▲ 1</span></div>
   </article>
 
-  <article class="day">
+  <article class="day" data-date="2026-08-07">
     <div class="drow"><span class="dnum">07</span><span class="dwhen"><span class="es">Vie · Ago 7</span><span class="en">Fri · Aug 7</span></span><span class="dtitle"><span class="es">¿La Aventura Grande?</span><span class="en">The Big Adventure?</span></span></div>
-    <div class="stop open"><span class="when"><span class="es">Todo el día</span><span class="en">All day</span></span><span class="what"><span class="dashline"></span><span class="es">completely unwritten. Huasteca waterfalls and the Cerro de San Pedro ghost town have <b>zero votes</b> — this whole day belongs to whoever shows up at <a href="https://travelingseven.netlify.app/#boleta">La Boleta</a></span><span class="en">completely unwritten. The Huasteca waterfalls and the Cerro de San Pedro ghost town have <b>zero votes</b> — this whole day belongs to whoever shows up at <a href="https://travelingseven.netlify.app/#boleta">the ballot</a></span></span></div>
+    <div class="stop open"><span class="when"><span class="es">Todo el día</span><span class="en">All day</span></span><span class="what"><span class="dashline"></span><span class="es">sigue en blanco. Las cascadas de la Huasteca y el pueblo fantasma del Cerro de San Pedro llevan <b>cero votos</b> — el único día grande que nadie ha reclamado · <a href="index.html#boleta">recláma­lo</a></span><span class="en">still blank. The Huasteca waterfalls and the Cerro de San Pedro ghost town have <b>zero votes</b> — the one big day nobody has claimed · <a href="index.html#boleta">claim it</a></span></span></div>
   </article>
 
-  <article class="day">
+  <article class="day" data-date="2026-08-08">
     <div class="drow"><span class="dnum">08</span><span class="dwhen"><span class="es">Sáb · Ago 8</span><span class="en">Sat · Aug 8</span></span><span class="dtitle"><span class="es">Sábado de sopes</span><span class="en">Sopes Saturday</span></span></div>
-    <div class="stop open"><span class="when"><span class="es">Mañana</span><span class="en">Morning</span></span><span class="what"><span class="dashline"></span><span class="es">por decidir — <a href="https://travelingseven.netlify.app/#boleta">vota</a> <span class="by">(Tangamanga was voted down ▼2 — new ideas welcome)</span></span><span class="en">to be decided — <a href="https://travelingseven.netlify.app/#boleta">vote</a> <span class="by">(Tangamanga park was voted down ▼2 — new ideas welcome)</span></span></span></div>
-    <div class="stop"><span class="when"><span class="es">Comida</span><span class="en">Lunch</span></span><span class="what"><b><span class="es">Sopes del Parque de Morales</span><span class="en">Sopes at Parque de Morales</span></b> <span class="by"><span class="es">· idea de Jesse</span><span class="en">· Jesse's idea</span></span></span><span class="vt">▲ 1</span></div>
-    <div class="stop"><span class="when"><span class="es">Tarde</span><span class="en">Afternoon</span></span><span class="what"><b><span class="es">Lucas picks one thing — unsupervised</span><span class="en">Lucas picks one thing — unsupervised</span></b> — <span class="es">his official comodín</span><span class="en">his official wildcard</span></span><span class="vt">▲ 1</span></div>
+    <div class="stop open"><span class="when"><span class="es">Mañana</span><span class="en">Morning</span></span><span class="what"><span class="dashline"></span><span class="es">por decidir — <a href="index.html#boleta">vota</a> <span class="by">(Tangamanga quedó fuera ▼2)</span></span><span class="en">to be decided — <a href="index.html#boleta">vote</a> <span class="by">(Tangamanga park was voted out ▼2)</span></span></span></div>
+    <div class="stop"><span class="when"><span class="es">Comida</span><span class="en">Lunch</span></span><span class="what"><b><span class="es">Sopes del Parque de Morales</span><span class="en">Sopes at Parque de Morales</span></b> <span class="by"><span class="es">· idea de Jesse</span><span class="en">· Jesse’s idea</span></span></span><span class="vt">▲ 2</span></div>
+    <div class="stop"><span class="when"><span class="es">Tarde</span><span class="en">Afternoon</span></span><span class="what"><b><span class="es">Lucas escoge algo — sin supervisión</span><span class="en">Lucas picks one thing — unsupervised</span></b> — <span class="es">su comodín oficial</span><span class="en">his official wildcard</span></span><span class="vt">▲ 1</span></div>
   </article>
 
-  <article class="day">
+  <article class="day" data-date="2026-08-09">
     <div class="drow"><span class="dnum">09</span><span class="dwhen"><span class="es">Dom · Ago 9</span><span class="en">Sun · Aug 9</span></span><span class="dtitle"><span class="es">La despedida</span><span class="en">The farewell</span></span></div>
-    <div class="stop open"><span class="when"><span class="es">Mañana</span><span class="en">Morning</span></span><span class="what"><span class="dashline"></span><span class="es">por decidir — <a href="https://travelingseven.netlify.app/#boleta">vota</a></span><span class="en">to be decided — <a href="https://travelingseven.netlify.app/#boleta">vote</a></span></span></div>
-    <div class="stop"><span class="when"><span class="es">Tarde</span><span class="en">Afternoon</span></span><span class="what"><b>Las Tortugas</b> <span class="by"><span class="es">· idea de Perla</span><span class="en">· Perla's idea</span></span> — <span class="es">last full afternoon, eaten well</span><span class="en">last full afternoon, eaten well</span></span><span class="vt">▲ 3 <span class="es">unánime</span><span class="en">unanimous</span></span></div>
-    <div class="stop"><span class="when"><span class="es">Noche</span><span class="en">Evening</span></span><span class="what"><b><span class="es">Nieve de garrafa en la plaza</span><span class="en">Nieve de garrafa (hand-churned ice cream) in the plaza</span></b> — <span class="es">golden-hour goodbye to San Luis</span><span class="en">golden-hour goodbye to San Luis</span></span><span class="vt">▲ 3 <span class="es">unánime</span><span class="en">unanimous</span></span></div>
+    <div class="stop open"><span class="when"><span class="es">Mañana</span><span class="en">Morning</span></span><span class="what"><span class="dashline"></span><span class="es">por decidir — <a href="index.html#boleta">vota</a></span><span class="en">to be decided — <a href="index.html#boleta">vote</a></span></span></div>
+    <div class="stop"><span class="when"><span class="es">Tarde</span><span class="en">Afternoon</span></span><span class="what"><b>Las Tortugas</b> <span class="by"><span class="es">· idea de Perla</span><span class="en">· Perla’s idea</span></span> — <span class="es">la última tarde completa, bien comida</span><span class="en">last full afternoon, eaten well</span></span><span class="vt">▲ 3</span></div>
+    <div class="stop"><span class="when"><span class="es">Noche</span><span class="en">Evening</span></span><span class="what"><b><span class="es">Nieve de garrafa en la plaza</span><span class="en">Nieve de garrafa (hand-churned ice cream) in the plaza</span></b> — <span class="es">adiós dorado a San Luis</span><span class="en">golden-hour goodbye to San Luis</span></span><span class="vt">▲ 3</span></div>
   </article>
 
-  <article class="day">
+  <article class="day" data-date="2026-08-10">
     <div class="drow"><span class="dnum">10</span><span class="dwhen"><span class="es">Lun · Ago 10</span><span class="en">Mon · Aug 10</span></span><span class="dtitle"><span class="es">Hasta luego</span><span class="en">Until next time</span></span></div>
-    <div class="stop"><span class="pin">✈</span><span class="what"><b>UA 2405</b> · SLP 11:45 AM → Houston · <b>UA 2197</b> → ORD 9:40 PM · <span class="es">checkout by 9:15</span><span class="en">checkout by 9:15 AM</span></span></div>
+    <div class="stop"><span class="pin">✈</span><span class="what"><b>UA 2405</b> · SLP 11:45 AM → Houston · <b>UA 2197</b> → ORD 9:40 PM · <span class="es">salida del hotel 9:15</span><span class="en">checkout by 9:15 AM</span></span></div>
   </article>
 
 </div>
 
 <div class="wrap">
   <div class="bubble">
-    <h3><span class="es">En la burbuja — one vote from making the cut</span><span class="en">On the bubble — one vote from making the cut</span></h3>
-    <p><span class="es">These are alive but undecided. The four of you who haven't voted hold the deciding hand.</span><span class="en">These are alive but undecided. The four of you who haven't voted hold the deciding hand.</span></p>
+    <h3><span class="es">Recién propuestas — necesitan votos</span><span class="en">Just proposed — waiting on votes</span></h3>
+    <p><span class="es">Ocho ideas llegaron después del primer conteo y nadie las ha votado todavía. Un solo voto puede meterlas al itinerario.</span><span class="en">Eight ideas landed after the first tally and nobody has voted on them yet. A single vote can put one on the schedule.</span></p>
     <div class="pills">
-      <span class="pill"><span class="es">Xochimilco trajineras</span><span class="en">Xochimilco canal boats</span> <span class="n">▲1</span></span>
-      <span class="pill"><span class="es">Casa Azul — Frida</span><span class="en">Frida Kahlo's Casa Azul</span> <span class="n">▲1</span></span>
-      <span class="pill"><span class="es">Teotihuacán</span><span class="en">Teotihuacán pyramids</span> <span class="n">0</span></span>
-      <span class="pill"><span class="es">Basílica <span class="n">· idea de Jesse</span></span><span class="en">The Basilica <span class="n">· Jesse's idea</span></span> <span class="n">0</span></span>
-      <span class="pill"><span class="es">Lucha libre</span><span class="en">Lucha libre wrestling night</span> <span class="n">0</span></span>
-      <span class="pill"><span class="es">Huasteca — Tamasopo</span><span class="en">Huasteca waterfalls — Tamasopo</span> <span class="n">0</span></span>
-      <span class="pill"><span class="es">Cerro de San Pedro</span><span class="en">Cerro de San Pedro ghost town</span> <span class="n">0</span></span>
-      <span class="pill"><span class="es">Matching t-shirt photo</span><span class="en">Matching t-shirt photo</span> <span class="n">0</span></span>
+      <span class="pill">Cosmópolis bazar <span class="n"><span class="es">· de Angelina</span><span class="en">· Angelina</span></span></span>
+      <span class="pill">Ritmo café <span class="n"><span class="es">· de Angelina</span><span class="en">· Angelina</span></span></span>
+      <span class="pill">Salón Palomilla <span class="n"><span class="es">· de Angelina</span><span class="en">· Angelina</span></span></span>
+      <span class="pill">Goodbye Folk Vintage <span class="n"><span class="es">· de Jerry</span><span class="en">· Jerry</span></span></span>
+      <span class="pill">Centro de Relojes <span class="n"><span class="es">· de Jerry</span><span class="en">· Jerry</span></span></span>
+      <span class="pill"><span class="es">Ir de excursión</span><span class="en">Go hiking</span> <span class="n"><span class="es">· de Lucas</span><span class="en">· Lucas</span></span></span>
+      <span class="pill"><span class="es">Lucha libre</span><span class="en">Lucha libre</span> <span class="n">0</span></span>
+      <span class="pill"><span class="es">Huasteca · Cerro de San Pedro</span><span class="en">Huasteca · Cerro de San Pedro</span> <span class="n">0</span></span>
     </div>
-    <p class="rejected"><span class="es">Voted off the island: Parque Tangamanga ▼2 · hot-air balloon ▼1 · Museo de la Máscara ▼1</span><span class="en">Voted off the island: Tangamanga park ▼2 · hot-air balloon ▼1 · Mask Museum ▼1</span></p>
+    <p class="rejected"><span class="es">Fuera por votación: Parque Tangamanga ▼2 · Museo de la Máscara ▼1 · globo aerostático ▲1▼1</span><span class="en">Voted out: Tangamanga park ▼2 · Mask Museum ▼1 · hot-air balloon ▲1▼1</span></p>
   </div>
 </div>
 
@@ -373,9 +378,37 @@ footer a{font-weight:600}
   ["langEN","langEN2"].forEach(function(id){ $(id).addEventListener("click", function(){ setLang("en"); }); });
   paint();
 
+  var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  /* mark today's card while the trip is under way */
+  (function(){
+    var now = new Date();
+    var today = now.getFullYear() + "-" +
+      String(now.getMonth()+1).padStart(2,"0") + "-" +
+      String(now.getDate()).padStart(2,"0");
+    var hit = null;
+    document.querySelectorAll(".day[data-date]").forEach(function(d){
+      var date = d.getAttribute("data-date");
+      if(date === today){
+        d.classList.add("today");
+        hit = d;
+        var badge = document.createElement("span");
+        badge.className = "hoy";
+        badge.innerHTML = '<span class="es">Hoy</span><span class="en">Today</span>';
+        d.querySelector(".dwhen").after(badge);
+      } else if(date < today){
+        d.classList.add("past");
+      }
+    });
+    if(hit && !location.hash){
+      setTimeout(function(){
+        hit.scrollIntoView({behavior: reduced ? "auto" : "smooth", block:"center"});
+      }, 700);
+    }
+  })();
+
   /* shared floating nav behavior */
   var island = $("island"), dock = $("dock"), ind = island.querySelector(".ind");
-  var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   function goTo(id){ var el=$(id); if(el) el.scrollIntoView({behavior: reduced ? "auto" : "smooth", block:"start"}); }
   document.querySelectorAll("[data-goto]").forEach(function(a){
     a.addEventListener("click", function(e){ e.preventDefault(); goTo(a.getAttribute("data-goto")); });
